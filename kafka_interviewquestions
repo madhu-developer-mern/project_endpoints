@@ -757,3 +757,626 @@ How do you prove an event was processed exactly once from a business perspective
 How do you audit a financial operation across Kafka, databases, and external systems?
 How do you reconstruct a business transaction months later?
 How do you distinguish message delivery guarantees from business correctness guarantees?
+33. Kafka Streams Architecture
+What problem does Kafka Streams solve in a microservices architecture?
+How is Kafka Streams different from a normal Kafka consumer?
+When should you use Kafka Streams instead of writing a consumer manually?
+What is a Kafka Streams topology?
+What is a source processor?
+What is a sink processor?
+What is a stream processor?
+What is a KStream?
+What is a KTable?
+What is a GlobalKTable?
+What is the architectural difference between KStream and KTable?
+When should an event stream be modeled as a KStream?
+When should data be modeled as a KTable?
+How is a KTable related to a compacted Kafka topic?
+How does Kafka Streams maintain local state?
+What is a state store?
+Where is a Kafka Streams state store physically stored?
+What happens to state if a Streams instance crashes?
+What is a changelog topic?
+How does a changelog topic help restore state?
+What is a repartition topic?
+Why does Kafka Streams sometimes create internal topics?
+When does repartitioning occur?
+Why can repartitioning become expensive?
+How do keys affect Kafka Streams joins?
+What is co-partitioning?
+Why do two topics need compatible partitioning for some joins?
+What happens if two joined topics have different partition counts?
+How do stream-stream joins work?
+How do stream-table joins work?
+How do table-table joins work?
+When would you use a GlobalKTable join?
+What is windowing in Kafka Streams?
+Why are windows needed for stream-stream joins?
+What is a tumbling window?
+What is a hopping window?
+What is a sliding window?
+What is a session window?
+How would you count orders per five-minute window?
+How would you detect repeated payment failures within ten minutes?
+What is event time?
+What is processing time?
+Why does event time matter in distributed systems?
+How does Kafka Streams handle out-of-order events?
+What is grace period in window processing?
+What happens to events arriving after the grace period?
+What is suppression in Kafka Streams?
+How do you emit only final window results?
+How does Kafka Streams scale horizontally?
+How are stream tasks related to Kafka partitions?
+34. Advanced Kafka Streams
+What is a Streams task?
+What is an active task?
+What is a standby task?
+How do standby replicas reduce recovery time?
+How does num.standby.replicas affect availability?
+What happens during a Kafka Streams rebalance?
+How is state moved or restored after rebalancing?
+Why can large state stores make deployments slow?
+How would you reduce state restoration time?
+How do RocksDB state stores work conceptually?
+When would an in-memory state store be appropriate?
+How do you monitor state-store size?
+How does local disk capacity affect Kafka Streams applications?
+How should Kafka Streams run in Kubernetes?
+Why are persistent volumes sometimes useful for Streams applications?
+Can Kafka Streams provide exactly-once processing?
+What does exactly_once_v2 mean?
+How does Kafka Streams use Kafka transactions internally?
+Does Kafka Streams exactly-once cover calls to external APIs?
+How would you safely combine Streams processing with an external database?
+How do you test a Kafka Streams topology?
+How do you version Kafka Streams applications?
+What happens when state-store schemas change?
+How would you migrate stateful Streams applications?
+What is interactive queries in Kafka Streams?
+How can another service query a Streams state store?
+What architectural risks exist with interactive queries?
+How do you locate which instance owns a particular key?
+How would you design high availability for interactive queries?
+When would Flink or Spark be preferable to Kafka Streams?
+35. Kafka Connect Architecture
+What is Kafka Connect?
+What architectural problem does Kafka Connect solve?
+What is a source connector?
+What is a sink connector?
+When would you use Kafka Connect instead of writing custom code?
+What is a connector?
+What is a connector task?
+How are connector tasks distributed across workers?
+What is a Kafka Connect worker?
+What is standalone mode?
+What is distributed mode?
+Why is distributed mode preferred in production?
+Where does Kafka Connect store connector configuration?
+Where does it store task offsets?
+Where does it store connector status?
+What internal topics does Connect use?
+Why should Connect internal topics be replicated?
+What happens when a Connect worker crashes?
+How are tasks reassigned?
+Can one connector run many tasks in parallel?
+What limits connector parallelism?
+How would you choose tasks.max?
+Does increasing tasks.max always increase throughput?
+How does source-system partitioning affect connector parallelism?
+How does sink-system capacity affect connector scaling?
+What is a Single Message Transform?
+When should SMTs be used?
+When should SMTs not contain complex business logic?
+How do schemas interact with Kafka Connect?
+What is converter configuration in Kafka Connect?
+36. Kafka Connect Production Scenarios
+How would you stream PostgreSQL changes into Kafka?
+How would you send Kafka events into Elasticsearch?
+How would you send Kafka data to S3?
+How would you connect MongoDB to Kafka?
+How would you replicate Kafka events into a data warehouse?
+What happens when a sink system is unavailable?
+How should sink connector retries be configured?
+How do DLQs work in Kafka Connect?
+How do you monitor connector lag?
+How do you distinguish connector failure from Kafka failure?
+How do you update connector configuration without losing offsets?
+How do you restart only failed connector tasks?
+What happens when connector serialization fails?
+How do you handle schema changes in sink systems?
+How do you prevent duplicate database inserts from a sink connector?
+What delivery guarantees can Kafka Connect provide?
+Does a sink connector guarantee exactly-once delivery?
+How do connector semantics depend on the external system?
+How would you secure connector credentials?
+How do you isolate connectors belonging to different teams?
+Should all connectors run in one Connect cluster?
+When should you create separate Connect clusters?
+How do noisy connectors affect other connectors?
+How would you capacity-plan a Connect cluster?
+How do you upgrade Kafka Connect safely?
+How do plugin version conflicts occur?
+What is connector plugin isolation?
+How do you deploy custom connectors?
+How do you test connectors before production?
+What operational standards should exist for Kafka Connect?
+37. Kafka Transactions Internals
+What problem do Kafka transactions solve?
+What is a transactional producer?
+What is transactional.id?
+Why must transactional.id be stable?
+What happens if two producers use the same transactional ID?
+What is producer fencing?
+Why is fencing necessary?
+What is a producer epoch?
+What is a producer ID?
+How are producer IDs related to idempotence?
+What happens when a producer restarts?
+How does Kafka distinguish an old producer instance from a new one?
+What is a transaction coordinator?
+Where is transaction metadata stored?
+What is the transaction state log?
+How does Kafka commit a transaction?
+How does Kafka abort a transaction?
+What happens to aborted records physically?
+How does a read_committed consumer behave?
+How does read_uncommitted differ?
+What is the last stable offset?
+Why can open transactions delay read_committed consumers?
+What happens if a producer dies with an open transaction?
+What is transaction timeout?
+How do long transactions affect consumers?
+Can a Kafka transaction write to multiple partitions atomically?
+Can it write to multiple topics atomically?
+Can offsets be committed inside the same transaction?
+How does consume-transform-produce achieve Kafka exactly-once semantics?
+Why does this not automatically make an external REST API exactly once?
+38. Kafka Storage Internals
+How is Kafka data physically stored on disk?
+What is a partition log?
+What is a log segment?
+Why does Kafka split partition logs into segments?
+What causes a new log segment to be created?
+What is segment.bytes?
+What is segment.ms?
+What files exist for each Kafka log segment?
+What is a .log file?
+What is an offset index?
+What is a time index?
+How does Kafka find a message by offset efficiently?
+Why doesn't Kafka maintain one huge index for every message?
+How are offsets represented internally?
+Why is sequential disk I/O important to Kafka performance?
+Why can Kafka be fast even though it writes to disk?
+What is the operating-system page cache?
+How does Kafka benefit from page cache?
+Why doesn't Kafka rely heavily on application-level caching?
+What happens when page cache is insufficient?
+How does RAM affect Kafka performance?
+How does disk throughput affect broker performance?
+SSD versus HDD: what changes for Kafka architecture?
+What is zero-copy transfer?
+How can zero-copy reduce CPU usage?
+How does Kafka send stored records efficiently to consumers?
+What happens when data is no longer in page cache?
+How does retention delete old segments?
+Why is segment-level deletion efficient?
+How does file-system performance affect Kafka?
+39. Log Compaction Internals
+How does the Kafka log cleaner work?
+What is the clean portion of a compacted log?
+What is the dirty portion?
+What is dirty ratio?
+How does Kafka decide when compaction should run?
+How does the cleaner know the latest value for a key?
+What is the offset map used by the cleaner?
+Can duplicate keys remain after compaction?
+Why is compaction not instantaneous?
+Can consumers see older values before compaction happens?
+What happens to null-valued tombstone records?
+How long are tombstones retained?
+Why is tombstone retention important?
+What happens if a consumer is offline longer than tombstone retention?
+How can this affect rebuilding state?
+What is delete.retention.ms?
+What is min.cleanable.dirty.ratio?
+How does compaction affect broker CPU and disk I/O?
+Can compaction impact producer or consumer latency?
+How would you troubleshoot a compacted topic whose disk usage keeps growing?
+40. Producer Client Internals
+What happens internally when producer.send() is called?
+Does send() immediately contact a broker?
+What is the producer record accumulator?
+Why does the producer batch records?
+How are batches maintained per partition?
+What is producer metadata?
+How does the producer discover partition leaders?
+What happens when producer metadata becomes stale?
+How does a producer react to NOT_LEADER_OR_FOLLOWER?
+What is metadata.max.age.ms?
+How does the producer choose which broker connection to use?
+What does the producer network thread do?
+What happens when buffer.memory is exhausted?
+What is max.block.ms?
+What causes producer send calls to block?
+How does delivery.timeout.ms work?
+How is request.timeout.ms different?
+How do retries fit within delivery timeout?
+What is retry backoff?
+Why can very high retry counts be dangerous?
+How does idempotence change producer retry behavior?
+Why does max.in.flight.requests.per.connection matter?
+How can it affect ordering?
+How does batching interact with compression?
+Why is compression usually more efficient with larger batches?
+What is sticky partitioning?
+How does sticky partitioning improve batching for null-key messages?
+How would you tune a producer for very low latency?
+How would you tune one for maximum throughput?
+How would you tune one for high durability?
+41. Consumer Client Internals
+What happens internally when a consumer starts?
+How does a consumer discover the group coordinator?
+What is the group coordinator?
+How is a group coordinator selected?
+What is the __consumer_offsets topic?
+Why is it partitioned?
+How does Kafka map a consumer group to an offsets partition?
+What information is stored in __consumer_offsets?
+How does a consumer join a group?
+What is the JoinGroup request?
+What is the SyncGroup request?
+How are partitions assigned?
+Who performs the assignment?
+How has consumer group protocol evolved?
+What happens during polling?
+Does poll() only fetch records?
+Why is calling poll() regularly important?
+What is fetch.min.bytes?
+What is fetch.max.wait.ms?
+How can they be tuned for throughput?
+What is max.poll.records?
+Does max.poll.records limit broker fetch size?
+What is fetch.max.bytes?
+What is max.partition.fetch.bytes?
+How can very large records affect consumers?
+What happens if a record is larger than consumer fetch limits?
+How does consumer prefetching work?
+How do consumers pause partitions?
+When would you use pause() and resume()?
+How would you implement controlled backpressure using consumer pause/resume?
+42. Performance Engineering
+How would you benchmark a Kafka cluster?
+What metrics determine producer throughput?
+What metrics determine consumer throughput?
+How do you measure end-to-end Kafka latency?
+How do you measure publish latency separately from processing latency?
+How do message size and throughput interact?
+Is 1 million tiny messages equivalent to a few thousand large messages?
+How does batching change throughput?
+How does compression change throughput?
+How does compression ratio affect network capacity?
+When can compression make performance worse?
+How do CPU-bound brokers behave differently from disk-bound brokers?
+How do you identify a network bottleneck?
+How do you identify a disk bottleneck?
+How do you identify broker thread saturation?
+What are Kafka network threads?
+What are Kafka I/O threads?
+When would you tune num.network.threads?
+When would you tune num.io.threads?
+How would you load-test a Kafka-based microservice before production?
+43. Capacity Planning
+How would you estimate Kafka cluster size from messages per second?
+How would you include average record size in calculations?
+How would you calculate ingress MB/sec?
+How would you calculate egress MB/sec?
+How does number of consumer groups affect egress traffic?
+Why can egress be many times higher than ingress?
+How does replication increase broker network traffic?
+How do you calculate replication traffic?
+How would you calculate daily storage requirements?
+How would you calculate storage after compression?
+How does replication factor affect total storage?
+How do you include retention period?
+How much free disk headroom should you plan?
+How do replay workloads affect capacity calculations?
+How do traffic spikes affect capacity planning?
+How would you plan for 3x peak traffic?
+How do you estimate required broker count?
+How do you determine partitions per broker?
+What limits total partitions in a cluster?
+How would you capacity-plan controllers separately from brokers?
+How do Schema Registry workloads scale?
+How do Kafka Connect workloads scale?
+How do Kafka Streams state stores affect infrastructure sizing?
+How do you plan storage for changelog topics?
+How would you create a Kafka capacity model for three-year growth?
+44. Tiered Storage Architecture
+What is Kafka tiered storage?
+Why would an organization use tiered storage?
+What is local retention?
+What is remote retention?
+What data remains on broker disks?
+What data moves to remote object storage?
+How does tiered storage reduce broker disk requirements?
+Does tiered storage eliminate local disk requirements?
+How does historical replay work with remote storage?
+How can remote reads affect latency?
+When is tiered storage useful for six-month retention?
+How does tiered storage affect broker replacement?
+How does it change cluster scaling?
+How should you estimate object-storage costs?
+What additional network costs can tiered storage introduce?
+What happens if remote storage becomes temporarily unavailable?
+Can old data still be consumed?
+How does disaster recovery interact with remote storage?
+What monitoring is important for tiered storage?
+When would traditional broker-local retention still be preferable?
+45. Multi-Tenant Kafka Architecture
+How do you host many application teams on one Kafka cluster?
+What is a Kafka tenant?
+Should each tenant receive separate topics?
+Should each tenant receive a separate cluster?
+When is cluster-per-tenant justified?
+How do quotas prevent noisy neighbors?
+What are producer quotas?
+What are consumer quotas?
+What are request quotas?
+How do quotas protect broker resources?
+How do you design ACLs for multiple teams?
+How do you prevent one team from creating thousands of partitions?
+How do you enforce retention limits?
+How do you enforce replication standards?
+How do you charge back Kafka infrastructure usage to teams?
+How do you measure storage usage per domain?
+How do you measure network usage per tenant?
+How would you separate critical and non-critical workloads?
+When should workloads move to separate clusters?
+How would you prevent development workloads from affecting production workloads?
+46. Kafka Governance
+What does Kafka governance mean?
+Who should approve topic creation?
+Should developers create production topics automatically?
+How would you implement topic creation through CI/CD?
+Which topic properties should be standardized?
+How would you enforce minimum replication factor?
+How would you enforce retention policies?
+How would you enforce schema compatibility rules?
+How would you enforce topic naming conventions?
+How do you identify topic owners?
+How do you identify schema owners?
+How should deprecated topics be managed?
+How do you detect unused topics?
+When should an unused topic be deleted?
+How do you prevent accidental topic deletion?
+How should Kafka ACL changes be reviewed?
+How do you maintain an event catalog?
+What information should an event catalog contain?
+How do developers discover existing events?
+How do you prevent duplicate events being created by different teams?
+How do you document event semantics?
+Why is documenting only field names insufficient?
+How do you document business meaning of fields?
+How do you document ordering guarantees?
+How do you document delivery guarantees?
+47. Kafka Testing Architecture
+How should Kafka producers be unit tested?
+How should Kafka consumers be unit tested?
+How do you test serializers and deserializers?
+How do you test schema compatibility?
+How do you test duplicate-message handling?
+How do you test out-of-order messages?
+How do you test consumer restart scenarios?
+How do you test broker failure scenarios?
+How do you test retry-topic behavior?
+How do you test DLQ routing?
+How do you test idempotency?
+How do you test Saga compensation?
+How do you test Outbox publishing?
+How do you test replay safety?
+How do you test schema evolution across old consumers?
+Should integration tests use a real Kafka broker?
+When are mock Kafka clients appropriate?
+What are embedded Kafka test environments?
+How can Testcontainers be used with Kafka?
+How do you perform end-to-end Kafka testing in CI?
+How do you test 100,000-message bursts?
+How do you test consumer lag recovery?
+How do you test a six-hour downstream outage?
+How do you verify no messages were silently lost?
+How do you chaos-test a Kafka microservices architecture?
+48. Deployment and Upgrade Architecture
+How do you upgrade Kafka brokers without downtime?
+What is a rolling broker upgrade?
+Why should only one broker usually be restarted at a time?
+What should you verify before restarting the next broker?
+How do under-replicated partitions affect upgrade safety?
+How do you upgrade KRaft controllers?
+How do you upgrade Kafka clients independently of brokers?
+Do producers and consumers have to use the same Kafka version as brokers?
+How does protocol compatibility allow rolling upgrades?
+What compatibility considerations apply during client upgrades?
+How do you upgrade Schema Registry?
+How do you upgrade Kafka Connect?
+How do you upgrade Streams applications without losing state?
+How do rolling application deployments affect consumer groups?
+How can static membership reduce deployment rebalances?
+How do you perform canary deployment for a Kafka consumer?
+How do you shadow-consume production traffic safely?
+How do you compare old and new consumer results?
+How would you roll back a broken Kafka consumer release?
+How do you roll back a producer after it has emitted a new event version?
+49. Disaster Recovery Mastery
+What failures should a Kafka DR plan cover?
+What is the difference between broker failure and cluster disaster?
+How do you recover from complete cluster loss?
+What Kafka data must be backed up?
+Is traditional filesystem backup of live broker disks sufficient?
+How do replicated secondary clusters help DR?
+How do you decide RPO for Kafka?
+How do you decide RTO?
+Which topics require near-zero RPO?
+Which topics can tolerate data loss?
+How would you recover schemas during disaster recovery?
+How would you recover consumer offsets?
+Should offsets be replicated to the DR cluster?
+How do consumers resume after failover?
+How do producers switch to a DR cluster?
+How do DNS-based failover strategies work?
+What problems can DNS caching cause?
+How would clients discover the active cluster?
+How do you prevent producers from writing to both clusters accidentally?
+How do you fail back after the primary region returns?
+How do you reconcile events produced during failover?
+How do you test DR regularly?
+What should a Kafka DR runbook contain?
+How would you simulate complete region loss?
+How do you prove DR actually meets business RPO/RTO requirements?
+50. Microservices Event Contract Mastery
+Who owns an event after it has been published?
+Can the producer change an event simply because its internal model changed?
+Why should database models not automatically become Kafka contracts?
+What makes a good integration event?
+Should event names describe past facts?
+Why is OrderCreated usually better than CreateOrder as an event?
+When is a Kafka command appropriate?
+How do commands differ architecturally from events?
+Should multiple consumers process the same command?
+How do you prevent command topics from accidentally becoming pub/sub events?
+Should an event contain the producer's entire database record?
+How do you minimize consumer coupling to unnecessary fields?
+How do you add context without creating huge messages?
+Should consumers make REST calls back to producers for missing data?
+What coupling does that introduce?
+How does event-carried state transfer solve this?
+What disadvantages come with larger self-contained events?
+How do you handle sensitive data in event-carried state transfer?
+How do you prevent event contracts from becoming bloated over years?
+How do you retire fields from widely consumed events safely?
+51. Event-Driven Architecture Anti-Patterns
+What is the shared-topic anti-pattern?
+Why is putting every business event into one topic dangerous?
+What is the event soup anti-pattern?
+What is the Kafka-as-database anti-pattern?
+When is Kafka appropriate as a source of truth?
+When is it not appropriate?
+What is the distributed-monolith-through-events anti-pattern?
+How can microservices become tightly coupled through event ordering?
+How can schema dependencies create deployment coupling?
+What is excessive event chaining?
+Why can a 15-service event chain become operationally dangerous?
+How do you reduce unnecessary event hops?
+What is the synchronous-over-Kafka anti-pattern?
+Why is implementing request-response over Kafka often questionable?
+When can Kafka request-response still be reasonable?
+What is the giant-event anti-pattern?
+What problems come from multi-megabyte Kafka records?
+Should files and images be directly stored in Kafka messages?
+What architecture should be used for large binary payloads instead?
+What is the database-change-event anti-pattern?
+Why can blindly publishing raw database CDC events expose internal design?
+What is excessive-topic proliferation?
+What operational problems come from millions of tiny topics?
+What is insufficient topic isolation?
+How do you balance topic proliferation against coupling?
+52. Large Message Architecture
+Why are large Kafka messages problematic?
+Which producer setting limits maximum request size?
+Which broker setting affects maximum message size?
+Which consumer settings must support large messages?
+Why must message-size configuration be aligned across producer, broker, and consumer?
+How does a 20 MB message affect memory usage?
+How does it affect network latency?
+How does it affect replication?
+How does it affect consumer processing?
+How does it affect batch efficiency?
+What is the claim-check pattern?
+How would you use S3 plus Kafka for large files?
+What should the Kafka event contain in a claim-check design?
+How do you handle object-storage deletion safely?
+How do you guarantee the referenced object exists before publishing the event?
+53. Event Ordering Mastery
+What exactly does Kafka ordering guarantee?
+Does Kafka preserve ordering across brokers?
+Does Kafka preserve ordering across topics?
+Does Kafka preserve ordering across consumer groups?
+What happens to ordering after repartitioning?
+What happens when partition count changes?
+How do retries affect order?
+How do DLQs affect order?
+How do async downstream calls affect processing order?
+Can one consumer read sequentially but process concurrently and still break ordering?
+How do you maintain per-key processing order while using concurrency?
+What is key-based work sharding inside a consumer?
+When is strict ordering worth the performance tradeoff?
+How would you process bank-account transactions in order?
+How would you process unrelated accounts concurrently?
+How can sequence numbers detect out-of-order events?
+How do you recover when event 102 arrives before event 101?
+Should consumers buffer out-of-order events?
+When should consumers reject them instead?
+How would you architect business ordering without requiring global Kafka ordering?
+54. Idempotency Mastery
+What makes a business operation idempotent?
+Is UPDATE status='PAID' naturally idempotent?
+Is balance = balance - 100 idempotent?
+How would you make a balance debit idempotent?
+What should be used as an idempotency key?
+Can Kafka topic-partition-offset be an idempotency key?
+What happens if the same business event is republished with a different offset?
+Why is a business event ID often better?
+Who should generate event IDs?
+How long should processed event IDs be retained?
+What storage strategies exist for deduplication?
+What happens when deduplication storage becomes huge?
+Can Redis be used for deduplication?
+What are the risks of Redis expiration?
+Can database uniqueness constraints provide idempotency?
+How would a unique event_id constraint work?
+How do you make external payment API calls idempotent?
+What if the external API supports its own idempotency key?
+What if it does not?
+Why is business-level idempotency more important than Kafka exactly-once claims?
+55. Final Architect Scenario Questions
+Design Kafka architecture for an e-commerce platform handling one million orders per hour.
+Design topics, keys, partitions, replication, and consumer groups for that platform.
+Design the order-to-payment-to-inventory workflow.
+Decide where REST should still be used instead of Kafka.
+Design reliable order creation using Transactional Outbox.
+Design an idempotent Payment Service.
+Design retry and DLQ handling for payment provider outages.
+Design compensation when payment succeeds but inventory fails.
+Design consumer autoscaling based on lag.
+Design schema evolution without coordinated deployments.
+Design a six-month replay capability.
+Design Kafka retention and storage for 5 TB/day.
+Design a three-AZ Kafka deployment.
+Design a two-region DR architecture.
+Design a Kafka monitoring and alerting strategy.
+Design secure authentication and authorization for 100 microservices.
+Design Kafka topic governance for 20 engineering teams.
+Design CI/CD checks for schemas and topics.
+Explain how you would test broker loss during peak traffic.
+Explain how you would prove no payment event was silently lost.
+A payment consumer is 20 million messages behind. Walk through your recovery plan.
+One partition contains 80% of messages. Redesign the key strategy.
+You need strict customer ordering but one customer generates massive traffic. What tradeoff do you make?
+Schema Registry is down. Explain exactly which producers and consumers may continue working and why.
+Kafka is unavailable for 30 minutes. Should order creation continue? Design the solution.
+Database is unavailable but Kafka is healthy. How should consumers behave?
+Kafka is healthy but an external payment provider is down for six hours. Design recovery.
+A new deployment causes constant consumer rebalances. Diagnose and redesign it.
+A developer accidentally publishes a breaking schema. How do you contain the incident?
+A producer created duplicate events for four hours. How do you repair downstream systems?
+An old consumer has been offline for two months and now reconnects. What could go wrong?
+Kafka disk reaches 90% during peak traffic. What actions do you take first?
+One broker repeatedly leaves ISR. How do you investigate?
+Your producer latency suddenly changes from 20 ms to 2 seconds. What do you inspect?
+Consumers are healthy but lag continues increasing. What architectural causes do you investigate?
+Increasing consumers does not reduce lag. Why might that happen?
+You increase partitions from 20 to 100 and ordering breaks. Explain why.
+A replay accidentally sends old notification emails again. Redesign the consumer.
+Business wants global ordering for one million events/sec. How do you challenge and redesign the requirement?
+Design the complete Kafka architecture you would confidently put into production for a large microservices platform.
