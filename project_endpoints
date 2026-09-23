@@ -1,0 +1,2020 @@
+Authentication / Identity
+POST   /api/v1/auth/register
+POST   /api/v1/auth/register/email
+POST   /api/v1/auth/register/mobile
+POST   /api/v1/auth/login
+POST   /api/v1/auth/login/password
+POST   /api/v1/auth/login/otp
+POST   /api/v1/auth/login/magic-link
+POST   /api/v1/auth/login/social
+POST   /api/v1/auth/login/google
+POST   /api/v1/auth/login/apple
+POST   /api/v1/auth/login/facebook
+POST   /api/v1/auth/logout
+POST   /api/v1/auth/logout/all-devices
+POST   /api/v1/auth/refresh
+POST   /api/v1/auth/token/introspect
+POST   /api/v1/auth/token/revoke
+POST   /api/v1/auth/otp/send
+POST   /api/v1/auth/otp/resend
+POST   /api/v1/auth/otp/verify
+POST   /api/v1/auth/email/verify
+POST   /api/v1/auth/email/resend-verification
+POST   /api/v1/auth/mobile/verify
+POST   /api/v1/auth/mobile/resend-verification
+POST   /api/v1/auth/password/forgot
+POST   /api/v1/auth/password/reset
+POST   /api/v1/auth/password/change
+POST   /api/v1/auth/password/validate
+POST   /api/v1/auth/password/check-compromised
+POST   /api/v1/auth/mfa/setup
+POST   /api/v1/auth/mfa/enable
+POST   /api/v1/auth/mfa/disable
+POST   /api/v1/auth/mfa/verify
+POST   /api/v1/auth/mfa/recovery-codes
+POST   /api/v1/auth/mfa/recovery
+GET    /api/v1/auth/sessions
+GET    /api/v1/auth/sessions/{sessionId}
+DELETE /api/v1/auth/sessions/{sessionId}
+DELETE /api/v1/auth/sessions
+GET    /api/v1/auth/devices
+DELETE /api/v1/auth/devices/{deviceId}
+POST   /api/v1/auth/device/trust
+DELETE /api/v1/auth/device/trust/{deviceId}
+GET    /api/v1/auth/security-events
+GET    /api/v1/auth/login-history
+POST   /api/v1/auth/account/lock
+POST   /api/v1/auth/account/unlock
+POST   /api/v1/auth/account/delete-request
+POST   /api/v1/auth/account/delete-confirm
+POST   /api/v1/auth/account/reactivate
+GET    /api/v1/auth/me
+GET    /api/v1/auth/permissions
+GET    /api/v1/auth/roles
+2. Customer Profile
+GET    /api/v1/customers/me
+PATCH  /api/v1/customers/me
+DELETE /api/v1/customers/me
+
+GET    /api/v1/customers/me/profile
+PATCH  /api/v1/customers/me/profile
+PUT    /api/v1/customers/me/name
+PUT    /api/v1/customers/me/email
+PUT    /api/v1/customers/me/mobile
+PUT    /api/v1/customers/me/date-of-birth
+PUT    /api/v1/customers/me/gender
+PUT    /api/v1/customers/me/language
+PUT    /api/v1/customers/me/timezone
+PUT    /api/v1/customers/me/currency
+
+GET    /api/v1/customers/me/preferences
+PUT    /api/v1/customers/me/preferences
+PATCH  /api/v1/customers/me/preferences
+
+GET    /api/v1/customers/me/privacy-settings
+PATCH  /api/v1/customers/me/privacy-settings
+
+GET    /api/v1/customers/me/communication-preferences
+PATCH  /api/v1/customers/me/communication-preferences
+
+POST   /api/v1/customers/me/avatar
+DELETE /api/v1/customers/me/avatar
+
+GET    /api/v1/customers/me/activity
+GET    /api/v1/customers/me/recently-viewed
+DELETE /api/v1/customers/me/recently-viewed
+
+GET    /api/v1/customers/me/export
+POST   /api/v1/customers/me/export-request
+GET    /api/v1/customers/me/export-request/{requestId}
+
+GET    /api/v1/customers/{customerId}
+PATCH  /api/v1/customers/{customerId}
+GET    /api/v1/customers/{customerId}/summary
+GET    /api/v1/customers/{customerId}/orders
+GET    /api/v1/customers/{customerId}/tickets
+GET    /api/v1/customers/{customerId}/wallet
+GET    /api/v1/customers/{customerId}/risk-profile
+3. Address Management
+GET    /api/v1/customers/me/addresses
+POST   /api/v1/customers/me/addresses
+GET    /api/v1/customers/me/addresses/{addressId}
+PUT    /api/v1/customers/me/addresses/{addressId}
+PATCH  /api/v1/customers/me/addresses/{addressId}
+DELETE /api/v1/customers/me/addresses/{addressId}
+
+POST   /api/v1/customers/me/addresses/{addressId}/default
+POST   /api/v1/customers/me/addresses/{addressId}/verify
+
+POST   /api/v1/addresses/validate
+POST   /api/v1/addresses/normalize
+POST   /api/v1/addresses/geocode
+POST   /api/v1/addresses/reverse-geocode
+
+GET    /api/v1/locations/countries
+GET    /api/v1/locations/countries/{countryCode}/states
+GET    /api/v1/locations/states/{stateCode}/cities
+GET    /api/v1/locations/postal-codes/{postalCode}
+GET    /api/v1/locations/serviceability/{postalCode}
+4. Homepage / Discovery
+GET    /api/v1/home
+GET    /api/v1/home/feed
+GET    /api/v1/home/banners
+GET    /api/v1/home/hero-banners
+GET    /api/v1/home/deals
+GET    /api/v1/home/categories
+GET    /api/v1/home/trending
+GET    /api/v1/home/recommended
+GET    /api/v1/home/recently-viewed
+GET    /api/v1/home/best-sellers
+GET    /api/v1/home/new-arrivals
+GET    /api/v1/home/top-rated
+GET    /api/v1/home/flash-sale
+GET    /api/v1/home/brands
+GET    /api/v1/home/personalized
+GET    /api/v1/home/widgets
+GET    /api/v1/home/sections
+GET    /api/v1/home/sections/{sectionId}
+GET    /api/v1/home/navigation
+GET    /api/v1/home/navigation/menu
+GET    /api/v1/home/navigation/footer
+5. Category APIs
+GET    /api/v1/categories
+POST   /api/v1/categories
+GET    /api/v1/categories/tree
+GET    /api/v1/categories/root
+GET    /api/v1/categories/{categoryId}
+PUT    /api/v1/categories/{categoryId}
+PATCH  /api/v1/categories/{categoryId}
+DELETE /api/v1/categories/{categoryId}
+
+GET    /api/v1/categories/{categoryId}/children
+GET    /api/v1/categories/{categoryId}/parents
+GET    /api/v1/categories/{categoryId}/breadcrumbs
+GET    /api/v1/categories/{categoryId}/products
+GET    /api/v1/categories/{categoryId}/brands
+GET    /api/v1/categories/{categoryId}/filters
+GET    /api/v1/categories/{categoryId}/attributes
+GET    /api/v1/categories/{categoryId}/facets
+GET    /api/v1/categories/{categoryId}/seo
+GET    /api/v1/categories/{categoryId}/recommendations
+
+POST   /api/v1/categories/{categoryId}/activate
+POST   /api/v1/categories/{categoryId}/deactivate
+POST   /api/v1/categories/{categoryId}/reorder
+6. Brand APIs
+GET    /api/v1/brands
+POST   /api/v1/brands
+GET    /api/v1/brands/{brandId}
+PUT    /api/v1/brands/{brandId}
+PATCH  /api/v1/brands/{brandId}
+DELETE /api/v1/brands/{brandId}
+
+GET    /api/v1/brands/{brandId}/products
+GET    /api/v1/brands/{brandId}/categories
+GET    /api/v1/brands/{brandId}/offers
+GET    /api/v1/brands/{brandId}/storefront
+
+POST   /api/v1/brands/{brandId}/activate
+POST   /api/v1/brands/{brandId}/deactivate
+POST   /api/v1/brands/{brandId}/verify
+7. Product Catalog
+GET    /api/v1/products
+POST   /api/v1/products
+GET    /api/v1/products/{productId}
+PUT    /api/v1/products/{productId}
+PATCH  /api/v1/products/{productId}
+DELETE /api/v1/products/{productId}
+
+GET    /api/v1/products/{productId}/details
+GET    /api/v1/products/{productId}/summary
+GET    /api/v1/products/{productId}/specifications
+GET    /api/v1/products/{productId}/attributes
+GET    /api/v1/products/{productId}/variants
+GET    /api/v1/products/{productId}/offers
+GET    /api/v1/products/{productId}/sellers
+GET    /api/v1/products/{productId}/images
+GET    /api/v1/products/{productId}/videos
+GET    /api/v1/products/{productId}/documents
+GET    /api/v1/products/{productId}/reviews
+GET    /api/v1/products/{productId}/ratings
+GET    /api/v1/products/{productId}/questions
+GET    /api/v1/products/{productId}/recommendations
+GET    /api/v1/products/{productId}/similar
+GET    /api/v1/products/{productId}/alternatives
+GET    /api/v1/products/{productId}/frequently-bought-together
+GET    /api/v1/products/{productId}/price-history
+GET    /api/v1/products/{productId}/availability
+GET    /api/v1/products/{productId}/delivery-options
+GET    /api/v1/products/{productId}/warranty
+GET    /api/v1/products/{productId}/return-policy
+GET    /api/v1/products/{productId}/seller-details
+
+POST   /api/v1/products/{productId}/activate
+POST   /api/v1/products/{productId}/deactivate
+POST   /api/v1/products/{productId}/archive
+POST   /api/v1/products/{productId}/publish
+POST   /api/v1/products/{productId}/unpublish
+POST   /api/v1/products/{productId}/duplicate
+8. SKU / Variant APIs
+GET    /api/v1/skus
+POST   /api/v1/skus
+GET    /api/v1/skus/{skuId}
+PUT    /api/v1/skus/{skuId}
+PATCH  /api/v1/skus/{skuId}
+DELETE /api/v1/skus/{skuId}
+
+GET    /api/v1/skus/{skuId}/inventory
+GET    /api/v1/skus/{skuId}/price
+GET    /api/v1/skus/{skuId}/offers
+GET    /api/v1/skus/{skuId}/sellers
+GET    /api/v1/skus/{skuId}/warehouses
+GET    /api/v1/skus/{skuId}/availability
+
+GET    /api/v1/products/{productId}/variants/{variantId}
+POST   /api/v1/products/{productId}/variants
+PUT    /api/v1/products/{productId}/variants/{variantId}
+PATCH  /api/v1/products/{productId}/variants/{variantId}
+DELETE /api/v1/products/{productId}/variants/{variantId}
+9. Product Media
+POST   /api/v1/products/{productId}/images
+PUT    /api/v1/products/{productId}/images/{imageId}
+DELETE /api/v1/products/{productId}/images/{imageId}
+POST   /api/v1/products/{productId}/images/reorder
+POST   /api/v1/products/{productId}/images/{imageId}/primary
+
+POST   /api/v1/products/{productId}/videos
+DELETE /api/v1/products/{productId}/videos/{videoId}
+
+POST   /api/v1/products/{productId}/documents
+DELETE /api/v1/products/{productId}/documents/{documentId}
+
+POST   /api/v1/media/upload-url
+POST   /api/v1/media/complete-upload
+DELETE /api/v1/media/{mediaId}
+10. Search APIs
+GET    /api/v1/search
+POST   /api/v1/search
+
+GET    /api/v1/search/products
+GET    /api/v1/search/categories
+GET    /api/v1/search/brands
+GET    /api/v1/search/sellers
+
+GET    /api/v1/search/suggestions
+GET    /api/v1/search/autocomplete
+GET    /api/v1/search/typeahead
+GET    /api/v1/search/trending
+GET    /api/v1/search/popular
+GET    /api/v1/search/recent
+
+GET    /api/v1/search/filters
+GET    /api/v1/search/facets
+
+POST   /api/v1/search/image
+POST   /api/v1/search/voice
+POST   /api/v1/search/barcode
+
+POST   /api/v1/search/events/impression
+POST   /api/v1/search/events/click
+POST   /api/v1/search/events/conversion
+
+POST   /api/v1/search/history
+GET    /api/v1/search/history
+DELETE /api/v1/search/history
+DELETE /api/v1/search/history/{historyId}
+11. Recommendation APIs
+GET    /api/v1/recommendations
+GET    /api/v1/recommendations/home
+GET    /api/v1/recommendations/products/{productId}
+GET    /api/v1/recommendations/categories/{categoryId}
+GET    /api/v1/recommendations/cart
+GET    /api/v1/recommendations/checkout
+GET    /api/v1/recommendations/orders/{orderId}
+GET    /api/v1/recommendations/reorder
+GET    /api/v1/recommendations/personalized
+GET    /api/v1/recommendations/trending
+GET    /api/v1/recommendations/similar
+GET    /api/v1/recommendations/complementary
+GET    /api/v1/recommendations/frequently-bought-together
+
+POST   /api/v1/recommendations/events/view
+POST   /api/v1/recommendations/events/click
+POST   /api/v1/recommendations/events/cart
+POST   /api/v1/recommendations/events/purchase
+POST   /api/v1/recommendations/events/dismiss
+12. Recently Viewed
+GET    /api/v1/customers/me/recently-viewed
+POST   /api/v1/customers/me/recently-viewed
+DELETE /api/v1/customers/me/recently-viewed
+DELETE /api/v1/customers/me/recently-viewed/{productId}
+13. Wishlist
+GET    /api/v1/wishlists
+POST   /api/v1/wishlists
+GET    /api/v1/wishlists/{wishlistId}
+PATCH  /api/v1/wishlists/{wishlistId}
+DELETE /api/v1/wishlists/{wishlistId}
+
+GET    /api/v1/wishlists/{wishlistId}/items
+POST   /api/v1/wishlists/{wishlistId}/items
+DELETE /api/v1/wishlists/{wishlistId}/items/{productId}
+
+POST   /api/v1/wishlists/{wishlistId}/items/{productId}/move-to-cart
+POST   /api/v1/wishlists/{wishlistId}/items/move-to-cart
+
+POST   /api/v1/wishlists/{wishlistId}/share
+POST   /api/v1/wishlists/{wishlistId}/privacy
+14. Shopping Cart
+GET    /api/v1/cart
+POST   /api/v1/cart
+DELETE /api/v1/cart
+
+GET    /api/v1/cart/items
+POST   /api/v1/cart/items
+GET    /api/v1/cart/items/{itemId}
+PATCH  /api/v1/cart/items/{itemId}
+DELETE /api/v1/cart/items/{itemId}
+
+PUT    /api/v1/cart/items/{itemId}/quantity
+POST   /api/v1/cart/items/{itemId}/increment
+POST   /api/v1/cart/items/{itemId}/decrement
+
+POST   /api/v1/cart/items/{itemId}/save-for-later
+POST   /api/v1/cart/items/{itemId}/move-to-wishlist
+
+GET    /api/v1/cart/summary
+GET    /api/v1/cart/totals
+GET    /api/v1/cart/availability
+GET    /api/v1/cart/delivery-options
+GET    /api/v1/cart/recommendations
+GET    /api/v1/cart/offers
+GET    /api/v1/cart/coupons
+GET    /api/v1/cart/validation
+
+POST   /api/v1/cart/validate
+POST   /api/v1/cart/refresh-prices
+POST   /api/v1/cart/refresh-inventory
+POST   /api/v1/cart/merge
+POST   /api/v1/cart/restore
+
+POST   /api/v1/cart/coupon
+DELETE /api/v1/cart/coupon/{couponCode}
+
+POST   /api/v1/cart/gift-card
+DELETE /api/v1/cart/gift-card/{giftCardId}
+
+POST   /api/v1/cart/wallet
+DELETE /api/v1/cart/wallet
+15. Save For Later
+GET    /api/v1/save-for-later
+POST   /api/v1/save-for-later/{productId}
+DELETE /api/v1/save-for-later/{productId}
+POST   /api/v1/save-for-later/{productId}/move-to-cart
+16. Pricing
+GET    /api/v1/prices/products/{productId}
+GET    /api/v1/prices/skus/{skuId}
+GET    /api/v1/prices/skus/{skuId}/history
+
+POST   /api/v1/pricing/calculate
+POST   /api/v1/pricing/batch-calculate
+POST   /api/v1/pricing/quote
+
+GET    /api/v1/pricing/rules
+POST   /api/v1/pricing/rules
+GET    /api/v1/pricing/rules/{ruleId}
+PATCH  /api/v1/pricing/rules/{ruleId}
+DELETE /api/v1/pricing/rules/{ruleId}
+
+POST   /api/v1/pricing/rules/{ruleId}/activate
+POST   /api/v1/pricing/rules/{ruleId}/deactivate
+
+GET    /api/v1/pricing/price-lists
+POST   /api/v1/pricing/price-lists
+GET    /api/v1/pricing/price-lists/{priceListId}
+PATCH  /api/v1/pricing/price-lists/{priceListId}
+
+POST   /api/v1/pricing/compare
+POST   /api/v1/pricing/recalculate-cart
+POST   /api/v1/pricing/recalculate-order
+17. Offers / Deals
+GET    /api/v1/offers
+POST   /api/v1/offers
+GET    /api/v1/offers/{offerId}
+PATCH  /api/v1/offers/{offerId}
+DELETE /api/v1/offers/{offerId}
+
+GET    /api/v1/offers/{offerId}/products
+GET    /api/v1/offers/{offerId}/eligibility
+
+POST   /api/v1/offers/{offerId}/activate
+POST   /api/v1/offers/{offerId}/deactivate
+
+GET    /api/v1/deals
+GET    /api/v1/deals/today
+GET    /api/v1/deals/flash
+GET    /api/v1/deals/upcoming
+GET    /api/v1/deals/{dealId}
+
+GET    /api/v1/flash-sales
+POST   /api/v1/flash-sales
+GET    /api/v1/flash-sales/{saleId}
+PATCH  /api/v1/flash-sales/{saleId}
+POST   /api/v1/flash-sales/{saleId}/start
+POST   /api/v1/flash-sales/{saleId}/stop
+18. Coupons / Promotions
+GET    /api/v1/coupons
+POST   /api/v1/coupons
+GET    /api/v1/coupons/{couponId}
+PATCH  /api/v1/coupons/{couponId}
+DELETE /api/v1/coupons/{couponId}
+
+POST   /api/v1/coupons/validate
+POST   /api/v1/coupons/apply
+POST   /api/v1/coupons/remove
+
+GET    /api/v1/coupons/available
+GET    /api/v1/coupons/customer
+GET    /api/v1/coupons/product/{productId}
+
+POST   /api/v1/coupons/{couponId}/activate
+POST   /api/v1/coupons/{couponId}/deactivate
+
+GET    /api/v1/promotions
+POST   /api/v1/promotions
+GET    /api/v1/promotions/{promotionId}
+PATCH  /api/v1/promotions/{promotionId}
+DELETE /api/v1/promotions/{promotionId}
+
+POST   /api/v1/promotions/evaluate
+POST   /api/v1/promotions/simulate
+19. Inventory
+GET    /api/v1/inventory
+GET    /api/v1/inventory/{skuId}
+GET    /api/v1/inventory/{skuId}/availability
+GET    /api/v1/inventory/{skuId}/warehouses
+
+POST   /api/v1/inventory/check
+POST   /api/v1/inventory/batch-check
+
+POST   /api/v1/inventory/reservations
+GET    /api/v1/inventory/reservations/{reservationId}
+DELETE /api/v1/inventory/reservations/{reservationId}
+
+POST   /api/v1/inventory/reservations/{reservationId}/confirm
+POST   /api/v1/inventory/reservations/{reservationId}/release
+POST   /api/v1/inventory/reservations/{reservationId}/extend
+
+POST   /api/v1/inventory/allocate
+POST   /api/v1/inventory/deallocate
+POST   /api/v1/inventory/reallocate
+
+POST   /api/v1/inventory/adjust
+POST   /api/v1/inventory/bulk-adjust
+
+GET    /api/v1/inventory/low-stock
+GET    /api/v1/inventory/out-of-stock
+GET    /api/v1/inventory/overstock
+
+GET    /api/v1/inventory/movements
+GET    /api/v1/inventory/movements/{movementId}
+
+POST   /api/v1/inventory/transfers
+GET    /api/v1/inventory/transfers/{transferId}
+POST   /api/v1/inventory/transfers/{transferId}/dispatch
+POST   /api/v1/inventory/transfers/{transferId}/receive
+POST   /api/v1/inventory/transfers/{transferId}/cancel
+20. Serviceability
+GET    /api/v1/serviceability
+GET    /api/v1/serviceability/{postalCode}
+
+POST   /api/v1/serviceability/check
+POST   /api/v1/serviceability/products/{productId}
+POST   /api/v1/serviceability/skus/{skuId}
+POST   /api/v1/serviceability/cart
+
+GET    /api/v1/serviceability/{postalCode}/delivery-options
+GET    /api/v1/serviceability/{postalCode}/payment-options
+GET    /api/v1/serviceability/{postalCode}/cod
+21. Checkout
+POST   /api/v1/checkout
+GET    /api/v1/checkout/{checkoutId}
+PATCH  /api/v1/checkout/{checkoutId}
+
+POST   /api/v1/checkout/{checkoutId}/address
+POST   /api/v1/checkout/{checkoutId}/billing-address
+
+GET    /api/v1/checkout/{checkoutId}/delivery-options
+POST   /api/v1/checkout/{checkoutId}/delivery-option
+
+GET    /api/v1/checkout/{checkoutId}/payment-methods
+POST   /api/v1/checkout/{checkoutId}/payment-method
+
+POST   /api/v1/checkout/{checkoutId}/coupon
+DELETE /api/v1/checkout/{checkoutId}/coupon/{couponCode}
+
+POST   /api/v1/checkout/{checkoutId}/gift-card
+POST   /api/v1/checkout/{checkoutId}/wallet
+
+GET    /api/v1/checkout/{checkoutId}/summary
+GET    /api/v1/checkout/{checkoutId}/totals
+
+POST   /api/v1/checkout/{checkoutId}/validate
+POST   /api/v1/checkout/{checkoutId}/review
+POST   /api/v1/checkout/{checkoutId}/place-order
+
+POST   /api/v1/checkout/{checkoutId}/lock-prices
+POST   /api/v1/checkout/{checkoutId}/reserve-inventory
+POST   /api/v1/checkout/{checkoutId}/release-inventory
+22. Orders
+GET    /api/v1/orders
+POST   /api/v1/orders
+GET    /api/v1/orders/{orderId}
+
+GET    /api/v1/orders/{orderId}/summary
+GET    /api/v1/orders/{orderId}/items
+GET    /api/v1/orders/{orderId}/timeline
+GET    /api/v1/orders/{orderId}/status
+GET    /api/v1/orders/{orderId}/payments
+GET    /api/v1/orders/{orderId}/shipments
+GET    /api/v1/orders/{orderId}/invoice
+GET    /api/v1/orders/{orderId}/invoices
+GET    /api/v1/orders/{orderId}/delivery
+GET    /api/v1/orders/{orderId}/tracking
+GET    /api/v1/orders/{orderId}/returns
+GET    /api/v1/orders/{orderId}/refunds
+
+POST   /api/v1/orders/{orderId}/cancel
+POST   /api/v1/orders/{orderId}/cancel-items
+POST   /api/v1/orders/{orderId}/reorder
+POST   /api/v1/orders/{orderId}/archive
+POST   /api/v1/orders/{orderId}/unarchive
+
+POST   /api/v1/orders/{orderId}/change-address
+POST   /api/v1/orders/{orderId}/change-delivery-slot
+
+POST   /api/v1/orders/{orderId}/contact-seller
+POST   /api/v1/orders/{orderId}/contact-support
+
+POST   /api/v1/orders/{orderId}/download-invoice
+POST   /api/v1/orders/{orderId}/email-invoice
+
+POST   /api/v1/orders/{orderId}/confirm-delivery
+POST   /api/v1/orders/{orderId}/report-not-delivered
+POST   /api/v1/orders/{orderId}/report-damaged
+POST   /api/v1/orders/{orderId}/report-missing-item
+POST   /api/v1/orders/{orderId}/report-wrong-item
+23. Order Item APIs
+GET    /api/v1/orders/{orderId}/items/{itemId}
+POST   /api/v1/orders/{orderId}/items/{itemId}/cancel
+POST   /api/v1/orders/{orderId}/items/{itemId}/return
+POST   /api/v1/orders/{orderId}/items/{itemId}/replace
+POST   /api/v1/orders/{orderId}/items/{itemId}/review
+POST   /api/v1/orders/{orderId}/items/{itemId}/buy-again
+POST   /api/v1/orders/{orderId}/items/{itemId}/support
+24. Order Management Internal
+POST   /internal/v1/orders/{orderId}/confirm
+POST   /internal/v1/orders/{orderId}/authorize
+POST   /internal/v1/orders/{orderId}/allocate
+POST   /internal/v1/orders/{orderId}/pack
+POST   /internal/v1/orders/{orderId}/ship
+POST   /internal/v1/orders/{orderId}/deliver
+POST   /internal/v1/orders/{orderId}/cancel
+POST   /internal/v1/orders/{orderId}/complete
+
+POST   /internal/v1/orders/{orderId}/status-transition
+POST   /internal/v1/orders/{orderId}/recalculate
+
+POST   /internal/v1/orders/{orderId}/hold
+POST   /internal/v1/orders/{orderId}/release-hold
+
+GET    /internal/v1/orders/{orderId}/events
+POST   /internal/v1/orders/{orderId}/events
+25. Payment Methods
+GET    /api/v1/payment-methods
+POST   /api/v1/payment-methods
+GET    /api/v1/payment-methods/{paymentMethodId}
+DELETE /api/v1/payment-methods/{paymentMethodId}
+
+POST   /api/v1/payment-methods/{paymentMethodId}/default
+
+GET    /api/v1/payment-methods/cards
+POST   /api/v1/payment-methods/cards
+DELETE /api/v1/payment-methods/cards/{cardId}
+
+GET    /api/v1/payment-methods/upi
+POST   /api/v1/payment-methods/upi
+DELETE /api/v1/payment-methods/upi/{upiId}
+
+GET    /api/v1/payment-methods/banks
+GET    /api/v1/payment-methods/wallets
+GET    /api/v1/payment-methods/emi-options
+GET    /api/v1/payment-methods/pay-later-options
+26. Payments
+POST   /api/v1/payments
+GET    /api/v1/payments/{paymentId}
+
+POST   /api/v1/payments/intents
+GET    /api/v1/payments/intents/{intentId}
+
+POST   /api/v1/payments/{paymentId}/authorize
+POST   /api/v1/payments/{paymentId}/capture
+POST   /api/v1/payments/{paymentId}/cancel
+POST   /api/v1/payments/{paymentId}/void
+POST   /api/v1/payments/{paymentId}/retry
+
+GET    /api/v1/payments/{paymentId}/status
+GET    /api/v1/payments/{paymentId}/transactions
+
+POST   /api/v1/payments/upi/intent
+POST   /api/v1/payments/upi/collect
+POST   /api/v1/payments/cards/authorize
+POST   /api/v1/payments/netbanking/initiate
+POST   /api/v1/payments/wallet/initiate
+POST   /api/v1/payments/cod/validate
+
+POST   /api/v1/payments/3ds/initiate
+POST   /api/v1/payments/3ds/complete
+
+POST   /api/v1/payments/verify
+POST   /api/v1/payments/reconcile
+27. Payment Webhooks
+POST   /webhooks/payments/success
+POST   /webhooks/payments/failed
+POST   /webhooks/payments/pending
+POST   /webhooks/payments/captured
+POST   /webhooks/payments/authorized
+POST   /webhooks/payments/refunded
+POST   /webhooks/payments/disputed
+POST   /webhooks/payments/chargeback
+
+POST   /webhooks/razorpay
+POST   /webhooks/stripe
+POST   /webhooks/paypal
+POST   /webhooks/adyen
+POST   /webhooks/cashfree
+28. Refunds
+POST   /api/v1/refunds
+GET    /api/v1/refunds
+GET    /api/v1/refunds/{refundId}
+
+POST   /api/v1/refunds/{refundId}/approve
+POST   /api/v1/refunds/{refundId}/reject
+POST   /api/v1/refunds/{refundId}/process
+POST   /api/v1/refunds/{refundId}/retry
+POST   /api/v1/refunds/{refundId}/cancel
+
+GET    /api/v1/refunds/{refundId}/status
+GET    /api/v1/orders/{orderId}/refunds
+GET    /api/v1/payments/{paymentId}/refunds
+29. Wallet
+GET    /api/v1/wallet
+GET    /api/v1/wallet/balance
+GET    /api/v1/wallet/transactions
+
+POST   /api/v1/wallet/add-money
+POST   /api/v1/wallet/withdraw
+POST   /api/v1/wallet/pay
+POST   /api/v1/wallet/refund
+
+GET    /api/v1/wallet/transactions/{transactionId}
+GET    /api/v1/wallet/statement
+30. Gift Cards
+GET    /api/v1/gift-cards
+POST   /api/v1/gift-cards/purchase
+
+POST   /api/v1/gift-cards/activate
+POST   /api/v1/gift-cards/redeem
+POST   /api/v1/gift-cards/validate
+
+GET    /api/v1/gift-cards/{giftCardId}
+GET    /api/v1/gift-cards/{giftCardId}/balance
+GET    /api/v1/gift-cards/{giftCardId}/transactions
+
+POST   /api/v1/gift-cards/{giftCardId}/transfer
+POST   /api/v1/gift-cards/{giftCardId}/block
+POST   /api/v1/gift-cards/{giftCardId}/unblock
+31. EMI / BNPL
+GET    /api/v1/emi/options
+POST   /api/v1/emi/calculate
+POST   /api/v1/emi/eligibility
+
+GET    /api/v1/bnpl/providers
+POST   /api/v1/bnpl/eligibility
+POST   /api/v1/bnpl/apply
+GET    /api/v1/bnpl/applications/{applicationId}
+POST   /api/v1/bnpl/applications/{applicationId}/confirm
+32. Shipping
+GET    /api/v1/shipping/options
+POST   /api/v1/shipping/calculate
+POST   /api/v1/shipping/estimate
+
+GET    /api/v1/shipments
+POST   /api/v1/shipments
+GET    /api/v1/shipments/{shipmentId}
+
+GET    /api/v1/shipments/{shipmentId}/status
+GET    /api/v1/shipments/{shipmentId}/tracking
+GET    /api/v1/shipments/{shipmentId}/events
+
+POST   /api/v1/shipments/{shipmentId}/assign-carrier
+POST   /api/v1/shipments/{shipmentId}/generate-label
+POST   /api/v1/shipments/{shipmentId}/dispatch
+POST   /api/v1/shipments/{shipmentId}/mark-in-transit
+POST   /api/v1/shipments/{shipmentId}/mark-out-for-delivery
+POST   /api/v1/shipments/{shipmentId}/mark-delivered
+POST   /api/v1/shipments/{shipmentId}/mark-failed
+POST   /api/v1/shipments/{shipmentId}/reschedule
+POST   /api/v1/shipments/{shipmentId}/cancel
+33. Tracking
+GET    /api/v1/tracking/{trackingNumber}
+GET    /api/v1/tracking/{trackingNumber}/events
+GET    /api/v1/tracking/{trackingNumber}/current-location
+GET    /api/v1/tracking/{trackingNumber}/eta
+
+POST   /api/v1/tracking/{trackingNumber}/subscribe
+DELETE /api/v1/tracking/{trackingNumber}/subscribe
+
+POST   /webhooks/logistics/status
+POST   /webhooks/logistics/location
+POST   /webhooks/logistics/delivery
+POST   /webhooks/logistics/exception
+34. Delivery Slots
+GET    /api/v1/delivery-slots
+GET    /api/v1/delivery-slots/{postalCode}
+POST   /api/v1/delivery-slots/reserve
+DELETE /api/v1/delivery-slots/reservations/{reservationId}
+POST   /api/v1/delivery-slots/reservations/{reservationId}/confirm
+35. Returns
+GET    /api/v1/returns
+POST   /api/v1/returns
+GET    /api/v1/returns/{returnId}
+
+GET    /api/v1/returns/{returnId}/status
+GET    /api/v1/returns/{returnId}/timeline
+GET    /api/v1/returns/{returnId}/refund
+GET    /api/v1/returns/{returnId}/pickup
+
+POST   /api/v1/returns/{returnId}/cancel
+POST   /api/v1/returns/{returnId}/approve
+POST   /api/v1/returns/{returnId}/reject
+
+POST   /api/v1/returns/{returnId}/schedule-pickup
+POST   /api/v1/returns/{returnId}/reschedule-pickup
+POST   /api/v1/returns/{returnId}/cancel-pickup
+
+POST   /api/v1/returns/{returnId}/received
+POST   /api/v1/returns/{returnId}/quality-check
+POST   /api/v1/returns/{returnId}/complete
+36. Replacements
+POST   /api/v1/replacements
+GET    /api/v1/replacements/{replacementId}
+
+POST   /api/v1/replacements/{replacementId}/approve
+POST   /api/v1/replacements/{replacementId}/reject
+POST   /api/v1/replacements/{replacementId}/cancel
+
+GET    /api/v1/replacements/{replacementId}/shipment
+GET    /api/v1/replacements/{replacementId}/tracking
+37. Reviews
+GET    /api/v1/products/{productId}/reviews
+POST   /api/v1/products/{productId}/reviews
+
+GET    /api/v1/reviews/{reviewId}
+PATCH  /api/v1/reviews/{reviewId}
+DELETE /api/v1/reviews/{reviewId}
+
+POST   /api/v1/reviews/{reviewId}/helpful
+DELETE /api/v1/reviews/{reviewId}/helpful
+
+POST   /api/v1/reviews/{reviewId}/report
+
+GET    /api/v1/reviews/{reviewId}/comments
+POST   /api/v1/reviews/{reviewId}/comments
+DELETE /api/v1/reviews/{reviewId}/comments/{commentId}
+
+POST   /api/v1/reviews/{reviewId}/images
+DELETE /api/v1/reviews/{reviewId}/images/{imageId}
+
+GET    /api/v1/customers/me/reviews
+GET    /api/v1/customers/me/pending-reviews
+38. Ratings
+GET    /api/v1/products/{productId}/ratings
+GET    /api/v1/products/{productId}/ratings/summary
+GET    /api/v1/products/{productId}/ratings/distribution
+
+POST   /api/v1/products/{productId}/ratings
+PUT    /api/v1/products/{productId}/ratings/{ratingId}
+DELETE /api/v1/products/{productId}/ratings/{ratingId}
+39. Product Questions & Answers
+GET    /api/v1/products/{productId}/questions
+POST   /api/v1/products/{productId}/questions
+
+GET    /api/v1/questions/{questionId}
+DELETE /api/v1/questions/{questionId}
+
+POST   /api/v1/questions/{questionId}/answers
+GET    /api/v1/questions/{questionId}/answers
+
+POST   /api/v1/answers/{answerId}/helpful
+POST   /api/v1/answers/{answerId}/report
+40. Loyalty / Rewards
+GET    /api/v1/loyalty
+GET    /api/v1/loyalty/balance
+GET    /api/v1/loyalty/transactions
+GET    /api/v1/loyalty/tiers
+
+POST   /api/v1/loyalty/earn
+POST   /api/v1/loyalty/redeem
+
+GET    /api/v1/loyalty/rewards
+GET    /api/v1/loyalty/rewards/{rewardId}
+POST   /api/v1/loyalty/rewards/{rewardId}/redeem
+
+GET    /api/v1/loyalty/referrals
+POST   /api/v1/loyalty/referrals
+41. Notifications
+GET    /api/v1/notifications
+GET    /api/v1/notifications/{notificationId}
+
+POST   /api/v1/notifications/{notificationId}/read
+POST   /api/v1/notifications/read-all
+DELETE /api/v1/notifications/{notificationId}
+
+GET    /api/v1/notification-preferences
+PATCH  /api/v1/notification-preferences
+
+POST   /api/v1/devices/push-token
+DELETE /api/v1/devices/push-token/{tokenId}
+
+POST   /internal/v1/notifications/email
+POST   /internal/v1/notifications/sms
+POST   /internal/v1/notifications/push
+POST   /internal/v1/notifications/whatsapp
+POST   /internal/v1/notifications/in-app
+42. Seller Registration
+POST   /api/v1/sellers/register
+GET    /api/v1/sellers/registration/{applicationId}
+PATCH  /api/v1/sellers/registration/{applicationId}
+
+POST   /api/v1/sellers/registration/{applicationId}/documents
+POST   /api/v1/sellers/registration/{applicationId}/bank-details
+POST   /api/v1/sellers/registration/{applicationId}/tax-details
+POST   /api/v1/sellers/registration/{applicationId}/submit
+
+POST   /api/v1/sellers/registration/{applicationId}/verify-email
+POST   /api/v1/sellers/registration/{applicationId}/verify-mobile
+43. Seller Account
+GET    /api/v1/seller/profile
+PATCH  /api/v1/seller/profile
+
+GET    /api/v1/seller/business
+PATCH  /api/v1/seller/business
+
+GET    /api/v1/seller/bank-accounts
+POST   /api/v1/seller/bank-accounts
+PATCH  /api/v1/seller/bank-accounts/{bankAccountId}
+DELETE /api/v1/seller/bank-accounts/{bankAccountId}
+
+GET    /api/v1/seller/tax-details
+PATCH  /api/v1/seller/tax-details
+
+GET    /api/v1/seller/documents
+POST   /api/v1/seller/documents
+DELETE /api/v1/seller/documents/{documentId}
+
+GET    /api/v1/seller/kyc
+POST   /api/v1/seller/kyc
+GET    /api/v1/seller/kyc/status
+44. Seller Product Management
+GET    /api/v1/seller/products
+POST   /api/v1/seller/products
+GET    /api/v1/seller/products/{productId}
+PATCH  /api/v1/seller/products/{productId}
+DELETE /api/v1/seller/products/{productId}
+
+POST   /api/v1/seller/products/{productId}/publish
+POST   /api/v1/seller/products/{productId}/unpublish
+
+GET    /api/v1/seller/listings
+POST   /api/v1/seller/listings
+GET    /api/v1/seller/listings/{listingId}
+PATCH  /api/v1/seller/listings/{listingId}
+DELETE /api/v1/seller/listings/{listingId}
+
+POST   /api/v1/seller/listings/bulk
+POST   /api/v1/seller/listings/import
+GET    /api/v1/seller/listings/export
+45. Seller Inventory
+GET    /api/v1/seller/inventory
+GET    /api/v1/seller/inventory/{skuId}
+
+PUT    /api/v1/seller/inventory/{skuId}
+POST   /api/v1/seller/inventory/{skuId}/adjust
+
+POST   /api/v1/seller/inventory/bulk-update
+POST   /api/v1/seller/inventory/import
+GET    /api/v1/seller/inventory/export
+
+GET    /api/v1/seller/inventory/low-stock
+GET    /api/v1/seller/inventory/out-of-stock
+46. Seller Orders
+GET    /api/v1/seller/orders
+GET    /api/v1/seller/orders/{orderId}
+
+POST   /api/v1/seller/orders/{orderId}/accept
+POST   /api/v1/seller/orders/{orderId}/reject
+
+POST   /api/v1/seller/orders/{orderId}/ready-to-pack
+POST   /api/v1/seller/orders/{orderId}/pack
+POST   /api/v1/seller/orders/{orderId}/ready-to-ship
+POST   /api/v1/seller/orders/{orderId}/handover
+
+GET    /api/v1/seller/orders/{orderId}/label
+GET    /api/v1/seller/orders/{orderId}/invoice
+GET    /api/v1/seller/orders/{orderId}/manifest
+47. Seller Returns
+GET    /api/v1/seller/returns
+GET    /api/v1/seller/returns/{returnId}
+
+POST   /api/v1/seller/returns/{returnId}/accept
+POST   /api/v1/seller/returns/{returnId}/dispute
+POST   /api/v1/seller/returns/{returnId}/inspect
+POST   /api/v1/seller/returns/{returnId}/complete
+48. Seller Settlements
+GET    /api/v1/seller/settlements
+GET    /api/v1/seller/settlements/{settlementId}
+
+GET    /api/v1/seller/settlements/{settlementId}/transactions
+GET    /api/v1/seller/settlements/{settlementId}/statement
+
+GET    /api/v1/seller/payouts
+GET    /api/v1/seller/payouts/{payoutId}
+
+GET    /api/v1/seller/fees
+GET    /api/v1/seller/commissions
+GET    /api/v1/seller/taxes
+49. Seller Analytics
+GET    /api/v1/seller/analytics/dashboard
+GET    /api/v1/seller/analytics/sales
+GET    /api/v1/seller/analytics/orders
+GET    /api/v1/seller/analytics/products
+GET    /api/v1/seller/analytics/inventory
+GET    /api/v1/seller/analytics/returns
+GET    /api/v1/seller/analytics/revenue
+GET    /api/v1/seller/analytics/conversion
+GET    /api/v1/seller/analytics/traffic
+GET    /api/v1/seller/analytics/ratings
+50. Warehouse
+GET    /api/v1/warehouses
+POST   /api/v1/warehouses
+GET    /api/v1/warehouses/{warehouseId}
+PATCH  /api/v1/warehouses/{warehouseId}
+DELETE /api/v1/warehouses/{warehouseId}
+
+GET    /api/v1/warehouses/{warehouseId}/inventory
+GET    /api/v1/warehouses/{warehouseId}/capacity
+GET    /api/v1/warehouses/{warehouseId}/zones
+GET    /api/v1/warehouses/{warehouseId}/bins
+
+POST   /api/v1/warehouses/{warehouseId}/zones
+POST   /api/v1/warehouses/{warehouseId}/bins
+
+GET    /api/v1/warehouses/{warehouseId}/inbound
+GET    /api/v1/warehouses/{warehouseId}/outbound
+
+GET    /api/v1/warehouses/{warehouseId}/pick-lists
+POST   /api/v1/warehouses/{warehouseId}/pick-lists
+
+GET    /api/v1/warehouses/{warehouseId}/pack-lists
+POST   /api/v1/warehouses/{warehouseId}/pack-lists
+51. Warehouse Receiving
+POST   /api/v1/warehouse/inbound/shipments
+GET    /api/v1/warehouse/inbound/shipments/{shipmentId}
+
+POST   /api/v1/warehouse/inbound/shipments/{shipmentId}/arrive
+POST   /api/v1/warehouse/inbound/shipments/{shipmentId}/receive
+POST   /api/v1/warehouse/inbound/shipments/{shipmentId}/inspect
+POST   /api/v1/warehouse/inbound/shipments/{shipmentId}/putaway
+POST   /api/v1/warehouse/inbound/shipments/{shipmentId}/complete
+52. Warehouse Picking / Packing
+GET    /api/v1/warehouse/picking/tasks
+GET    /api/v1/warehouse/picking/tasks/{taskId}
+
+POST   /api/v1/warehouse/picking/tasks/{taskId}/start
+POST   /api/v1/warehouse/picking/tasks/{taskId}/scan
+POST   /api/v1/warehouse/picking/tasks/{taskId}/complete
+
+GET    /api/v1/warehouse/packing/tasks
+GET    /api/v1/warehouse/packing/tasks/{taskId}
+
+POST   /api/v1/warehouse/packing/tasks/{taskId}/start
+POST   /api/v1/warehouse/packing/tasks/{taskId}/scan
+POST   /api/v1/warehouse/packing/tasks/{taskId}/complete
+53. Logistics Partners
+GET    /api/v1/logistics/carriers
+POST   /api/v1/logistics/carriers
+GET    /api/v1/logistics/carriers/{carrierId}
+PATCH  /api/v1/logistics/carriers/{carrierId}
+
+GET    /api/v1/logistics/carriers/{carrierId}/serviceability
+GET    /api/v1/logistics/carriers/{carrierId}/rates
+
+POST   /api/v1/logistics/rate-shop
+POST   /api/v1/logistics/assign-carrier
+POST   /api/v1/logistics/reassign-carrier
+54. Delivery Agent APIs
+POST   /api/v1/delivery-agents/login
+GET    /api/v1/delivery-agents/me
+
+GET    /api/v1/delivery-agents/me/tasks
+GET    /api/v1/delivery-agents/me/tasks/{taskId}
+
+POST   /api/v1/delivery-agents/me/tasks/{taskId}/accept
+POST   /api/v1/delivery-agents/me/tasks/{taskId}/reject
+
+POST   /api/v1/delivery-agents/me/tasks/{taskId}/pickup
+POST   /api/v1/delivery-agents/me/tasks/{taskId}/out-for-delivery
+
+POST   /api/v1/delivery-agents/me/tasks/{taskId}/otp/verify
+POST   /api/v1/delivery-agents/me/tasks/{taskId}/delivered
+POST   /api/v1/delivery-agents/me/tasks/{taskId}/failed
+
+POST   /api/v1/delivery-agents/me/location
+GET    /api/v1/delivery-agents/me/route
+55. Customer Support
+GET    /api/v1/support/tickets
+POST   /api/v1/support/tickets
+GET    /api/v1/support/tickets/{ticketId}
+PATCH  /api/v1/support/tickets/{ticketId}
+
+POST   /api/v1/support/tickets/{ticketId}/messages
+GET    /api/v1/support/tickets/{ticketId}/messages
+
+POST   /api/v1/support/tickets/{ticketId}/attachments
+POST   /api/v1/support/tickets/{ticketId}/close
+POST   /api/v1/support/tickets/{ticketId}/reopen
+
+POST   /api/v1/support/chat/start
+POST   /api/v1/support/chat/{chatId}/messages
+GET    /api/v1/support/chat/{chatId}/messages
+POST   /api/v1/support/chat/{chatId}/end
+
+GET    /api/v1/support/topics
+GET    /api/v1/support/faqs
+GET    /api/v1/support/faqs/{faqId}
+56. Admin Customers
+GET    /api/v1/admin/customers
+GET    /api/v1/admin/customers/{customerId}
+
+PATCH  /api/v1/admin/customers/{customerId}
+
+POST   /api/v1/admin/customers/{customerId}/block
+POST   /api/v1/admin/customers/{customerId}/unblock
+
+POST   /api/v1/admin/customers/{customerId}/suspend
+POST   /api/v1/admin/customers/{customerId}/unsuspend
+
+POST   /api/v1/admin/customers/{customerId}/verify
+
+GET    /api/v1/admin/customers/{customerId}/orders
+GET    /api/v1/admin/customers/{customerId}/payments
+GET    /api/v1/admin/customers/{customerId}/returns
+GET    /api/v1/admin/customers/{customerId}/tickets
+57. Admin Orders
+GET    /api/v1/admin/orders
+GET    /api/v1/admin/orders/{orderId}
+
+POST   /api/v1/admin/orders/{orderId}/cancel
+POST   /api/v1/admin/orders/{orderId}/hold
+POST   /api/v1/admin/orders/{orderId}/release
+
+POST   /api/v1/admin/orders/{orderId}/force-confirm
+POST   /api/v1/admin/orders/{orderId}/force-complete
+
+POST   /api/v1/admin/orders/{orderId}/refund
+POST   /api/v1/admin/orders/{orderId}/reship
+
+GET    /api/v1/admin/orders/{orderId}/audit
+GET    /api/v1/admin/orders/{orderId}/events
+58. Admin Sellers
+GET    /api/v1/admin/sellers
+GET    /api/v1/admin/sellers/{sellerId}
+
+POST   /api/v1/admin/sellers/{sellerId}/approve
+POST   /api/v1/admin/sellers/{sellerId}/reject
+
+POST   /api/v1/admin/sellers/{sellerId}/suspend
+POST   /api/v1/admin/sellers/{sellerId}/unsuspend
+
+POST   /api/v1/admin/sellers/{sellerId}/block
+POST   /api/v1/admin/sellers/{sellerId}/unblock
+
+GET    /api/v1/admin/sellers/{sellerId}/products
+GET    /api/v1/admin/sellers/{sellerId}/orders
+GET    /api/v1/admin/sellers/{sellerId}/settlements
+GET    /api/v1/admin/sellers/{sellerId}/performance
+59. Admin Catalog Moderation
+GET    /api/v1/admin/catalog/pending
+GET    /api/v1/admin/catalog/rejected
+
+POST   /api/v1/admin/catalog/{productId}/approve
+POST   /api/v1/admin/catalog/{productId}/reject
+POST   /api/v1/admin/catalog/{productId}/request-changes
+
+POST   /api/v1/admin/catalog/{productId}/block
+POST   /api/v1/admin/catalog/{productId}/unblock
+60. Fraud / Risk
+POST   /api/v1/risk/evaluate
+POST   /api/v1/risk/evaluate/login
+POST   /api/v1/risk/evaluate/payment
+POST   /api/v1/risk/evaluate/order
+POST   /api/v1/risk/evaluate/refund
+POST   /api/v1/risk/evaluate/return
+
+GET    /api/v1/risk/customers/{customerId}
+GET    /api/v1/risk/orders/{orderId}
+GET    /api/v1/risk/payments/{paymentId}
+
+GET    /api/v1/risk/rules
+POST   /api/v1/risk/rules
+GET    /api/v1/risk/rules/{ruleId}
+PATCH  /api/v1/risk/rules/{ruleId}
+
+POST   /api/v1/risk/rules/{ruleId}/activate
+POST   /api/v1/risk/rules/{ruleId}/deactivate
+
+GET    /api/v1/risk/cases
+POST   /api/v1/risk/cases
+GET    /api/v1/risk/cases/{caseId}
+POST   /api/v1/risk/cases/{caseId}/approve
+POST   /api/v1/risk/cases/{caseId}/reject
+POST   /api/v1/risk/cases/{caseId}/escalate
+
+GET    /api/v1/risk/device-fingerprint/{fingerprintId}
+POST   /api/v1/risk/device-fingerprint
+61. Tax
+POST   /api/v1/tax/calculate
+POST   /api/v1/tax/calculate/cart
+POST   /api/v1/tax/calculate/order
+
+GET    /api/v1/tax/rates
+GET    /api/v1/tax/rates/{regionId}
+
+GET    /api/v1/tax/categories
+POST   /api/v1/tax/categories
+
+GET    /api/v1/orders/{orderId}/tax-invoice
+GET    /api/v1/sellers/{sellerId}/tax-statements
+62. Invoices
+GET    /api/v1/invoices/{invoiceId}
+GET    /api/v1/invoices/{invoiceId}/pdf
+
+POST   /api/v1/invoices/{invoiceId}/email
+POST   /api/v1/invoices/{invoiceId}/regenerate
+
+GET    /api/v1/orders/{orderId}/invoices
+GET    /api/v1/orders/{orderId}/invoice/download
+63. Subscriptions
+GET    /api/v1/subscriptions
+POST   /api/v1/subscriptions
+
+GET    /api/v1/subscriptions/{subscriptionId}
+PATCH  /api/v1/subscriptions/{subscriptionId}
+
+POST   /api/v1/subscriptions/{subscriptionId}/pause
+POST   /api/v1/subscriptions/{subscriptionId}/resume
+POST   /api/v1/subscriptions/{subscriptionId}/cancel
+
+POST   /api/v1/subscriptions/{subscriptionId}/skip
+POST   /api/v1/subscriptions/{subscriptionId}/reschedule
+
+GET    /api/v1/subscriptions/{subscriptionId}/orders
+GET    /api/v1/subscriptions/{subscriptionId}/payments
+64. Prime / Membership
+GET    /api/v1/membership
+GET    /api/v1/membership/plans
+
+POST   /api/v1/membership/subscribe
+POST   /api/v1/membership/renew
+POST   /api/v1/membership/cancel
+
+GET    /api/v1/membership/benefits
+GET    /api/v1/membership/status
+
+POST   /api/v1/membership/trial/start
+POST   /api/v1/membership/trial/cancel
+65. Product Compare
+GET    /api/v1/compare
+POST   /api/v1/compare/products
+DELETE /api/v1/compare/products/{productId}
+DELETE /api/v1/compare
+66. Price Alerts
+GET    /api/v1/price-alerts
+POST   /api/v1/price-alerts
+GET    /api/v1/price-alerts/{alertId}
+PATCH  /api/v1/price-alerts/{alertId}
+DELETE /api/v1/price-alerts/{alertId}
+67. Stock Alerts
+GET    /api/v1/stock-alerts
+POST   /api/v1/stock-alerts
+DELETE /api/v1/stock-alerts/{alertId}
+
+POST   /internal/v1/stock-alerts/process
+POST   /internal/v1/stock-alerts/notify
+68. Abuse / Content Moderation
+POST   /api/v1/reports/review
+POST   /api/v1/reports/question
+POST   /api/v1/reports/answer
+POST   /api/v1/reports/seller
+POST   /api/v1/reports/product
+
+GET    /api/v1/admin/moderation/queue
+GET    /api/v1/admin/moderation/{caseId}
+
+POST   /api/v1/admin/moderation/{caseId}/approve
+POST   /api/v1/admin/moderation/{caseId}/reject
+POST   /api/v1/admin/moderation/{caseId}/remove-content
+69. Admin Promotions
+GET    /api/v1/admin/promotions
+POST   /api/v1/admin/promotions
+GET    /api/v1/admin/promotions/{promotionId}
+PATCH  /api/v1/admin/promotions/{promotionId}
+DELETE /api/v1/admin/promotions/{promotionId}
+
+POST   /api/v1/admin/promotions/{promotionId}/activate
+POST   /api/v1/admin/promotions/{promotionId}/pause
+POST   /api/v1/admin/promotions/{promotionId}/stop
+70. Campaigns
+GET    /api/v1/campaigns
+POST   /api/v1/campaigns
+GET    /api/v1/campaigns/{campaignId}
+PATCH  /api/v1/campaigns/{campaignId}
+
+POST   /api/v1/campaigns/{campaignId}/start
+POST   /api/v1/campaigns/{campaignId}/pause
+POST   /api/v1/campaigns/{campaignId}/stop
+
+GET    /api/v1/campaigns/{campaignId}/performance
+GET    /api/v1/campaigns/{campaignId}/conversions
+71. Advertisement APIs
+GET    /api/v1/ads
+GET    /api/v1/ads/placements
+GET    /api/v1/ads/products
+GET    /api/v1/ads/search
+
+POST   /api/v1/ads/impressions
+POST   /api/v1/ads/clicks
+POST   /api/v1/ads/conversions
+
+GET    /api/v1/seller/ads/campaigns
+POST   /api/v1/seller/ads/campaigns
+PATCH  /api/v1/seller/ads/campaigns/{campaignId}
+
+POST   /api/v1/seller/ads/campaigns/{campaignId}/start
+POST   /api/v1/seller/ads/campaigns/{campaignId}/pause
+POST   /api/v1/seller/ads/campaigns/{campaignId}/stop
+
+GET    /api/v1/seller/ads/campaigns/{campaignId}/metrics
+72. Analytics Events
+POST   /api/v1/events/page-view
+POST   /api/v1/events/product-view
+POST   /api/v1/events/search
+POST   /api/v1/events/search-click
+POST   /api/v1/events/category-view
+POST   /api/v1/events/add-to-cart
+POST   /api/v1/events/remove-from-cart
+POST   /api/v1/events/add-to-wishlist
+POST   /api/v1/events/checkout-start
+POST   /api/v1/events/payment-start
+POST   /api/v1/events/payment-success
+POST   /api/v1/events/order-created
+POST   /api/v1/events/order-delivered
+POST   /api/v1/events/return-created
+73. Business Analytics
+GET    /api/v1/admin/analytics/dashboard
+GET    /api/v1/admin/analytics/revenue
+GET    /api/v1/admin/analytics/orders
+GET    /api/v1/admin/analytics/customers
+GET    /api/v1/admin/analytics/sellers
+GET    /api/v1/admin/analytics/products
+GET    /api/v1/admin/analytics/categories
+GET    /api/v1/admin/analytics/payments
+GET    /api/v1/admin/analytics/refunds
+GET    /api/v1/admin/analytics/returns
+GET    /api/v1/admin/analytics/conversion
+GET    /api/v1/admin/analytics/cart-abandonment
+GET    /api/v1/admin/analytics/cohorts
+GET    /api/v1/admin/analytics/retention
+GET    /api/v1/admin/analytics/customer-lifetime-value
+GET    /api/v1/admin/analytics/gmv
+GET    /api/v1/admin/analytics/aov
+74. Reports
+GET    /api/v1/admin/reports
+POST   /api/v1/admin/reports
+
+GET    /api/v1/admin/reports/{reportId}
+GET    /api/v1/admin/reports/{reportId}/status
+GET    /api/v1/admin/reports/{reportId}/download
+
+POST   /api/v1/admin/reports/sales
+POST   /api/v1/admin/reports/orders
+POST   /api/v1/admin/reports/products
+POST   /api/v1/admin/reports/inventory
+POST   /api/v1/admin/reports/customers
+POST   /api/v1/admin/reports/sellers
+POST   /api/v1/admin/reports/returns
+POST   /api/v1/admin/reports/refunds
+POST   /api/v1/admin/reports/tax
+POST   /api/v1/admin/reports/settlements
+75. Admin Users / RBAC
+GET    /api/v1/admin/users
+POST   /api/v1/admin/users
+GET    /api/v1/admin/users/{userId}
+PATCH  /api/v1/admin/users/{userId}
+DELETE /api/v1/admin/users/{userId}
+
+GET    /api/v1/admin/roles
+POST   /api/v1/admin/roles
+GET    /api/v1/admin/roles/{roleId}
+PATCH  /api/v1/admin/roles/{roleId}
+DELETE /api/v1/admin/roles/{roleId}
+
+GET    /api/v1/admin/permissions
+POST   /api/v1/admin/roles/{roleId}/permissions
+DELETE /api/v1/admin/roles/{roleId}/permissions/{permissionId}
+
+POST   /api/v1/admin/users/{userId}/roles
+DELETE /api/v1/admin/users/{userId}/roles/{roleId}
+76. Audit Logs
+GET    /api/v1/admin/audit-logs
+GET    /api/v1/admin/audit-logs/{auditId}
+
+GET    /api/v1/admin/audit-logs/users/{userId}
+GET    /api/v1/admin/audit-logs/orders/{orderId}
+GET    /api/v1/admin/audit-logs/sellers/{sellerId}
+GET    /api/v1/admin/audit-logs/products/{productId}
+77. Feature Flags
+GET    /internal/v1/feature-flags
+POST   /internal/v1/feature-flags
+
+GET    /internal/v1/feature-flags/{flagKey}
+PATCH  /internal/v1/feature-flags/{flagKey}
+DELETE /internal/v1/feature-flags/{flagKey}
+
+POST   /internal/v1/feature-flags/{flagKey}/enable
+POST   /internal/v1/feature-flags/{flagKey}/disable
+POST   /internal/v1/feature-flags/{flagKey}/rollout
+78. Configuration
+GET    /internal/v1/config
+GET    /internal/v1/config/{key}
+PUT    /internal/v1/config/{key}
+DELETE /internal/v1/config/{key}
+
+GET    /internal/v1/config/cache
+POST   /internal/v1/config/cache/refresh
+79. Fraud Device / Security
+POST   /api/v1/security/device/register
+GET    /api/v1/security/device/{deviceId}
+POST   /api/v1/security/device/{deviceId}/trust
+POST   /api/v1/security/device/{deviceId}/block
+
+POST   /api/v1/security/captcha/verify
+POST   /api/v1/security/challenge
+POST   /api/v1/security/challenge/verify
+
+POST   /internal/v1/security/ip-reputation/check
+POST   /internal/v1/security/email-reputation/check
+POST   /internal/v1/security/mobile-reputation/check
+80. API Rate Limits / Quotas
+GET    /internal/v1/rate-limits
+GET    /internal/v1/rate-limits/{clientId}
+
+PUT    /internal/v1/rate-limits/{clientId}
+POST   /internal/v1/rate-limits/{clientId}/reset
+
+GET    /internal/v1/quotas/{clientId}
+PATCH  /internal/v1/quotas/{clientId}
+81. Cache Operations
+GET    /internal/v1/cache/status
+POST   /internal/v1/cache/invalidate
+POST   /internal/v1/cache/invalidate/product/{productId}
+POST   /internal/v1/cache/invalidate/category/{categoryId}
+POST   /internal/v1/cache/invalidate/customer/{customerId}
+POST   /internal/v1/cache/warm
+POST   /internal/v1/cache/warm/products
+POST   /internal/v1/cache/warm/categories
+82. Search Administration
+POST   /internal/v1/search/index/products
+POST   /internal/v1/search/index/categories
+POST   /internal/v1/search/index/brands
+
+POST   /internal/v1/search/reindex/products
+POST   /internal/v1/search/reindex/categories
+
+DELETE /internal/v1/search/index/products/{productId}
+
+POST   /internal/v1/search/synonyms
+GET    /internal/v1/search/synonyms
+DELETE /internal/v1/search/synonyms/{synonymId}
+
+GET    /internal/v1/search/index/status
+GET    /internal/v1/search/index/health
+83. Event / Messaging APIs
+POST   /internal/v1/events/publish
+POST   /internal/v1/events/batch-publish
+
+GET    /internal/v1/events/{eventId}
+GET    /internal/v1/events/{eventId}/status
+
+POST   /internal/v1/events/{eventId}/retry
+
+GET    /internal/v1/events/dead-letter
+POST   /internal/v1/events/dead-letter/{eventId}/replay
+DELETE /internal/v1/events/dead-letter/{eventId}
+84. Outbox Pattern APIs
+GET    /internal/v1/outbox
+GET    /internal/v1/outbox/pending
+GET    /internal/v1/outbox/failed
+
+POST   /internal/v1/outbox/{eventId}/publish
+POST   /internal/v1/outbox/{eventId}/retry
+POST   /internal/v1/outbox/retry-failed
+85. Saga / Distributed Transaction
+POST   /internal/v1/sagas/order
+GET    /internal/v1/sagas/{sagaId}
+
+GET    /internal/v1/sagas/{sagaId}/steps
+
+POST   /internal/v1/sagas/{sagaId}/continue
+POST   /internal/v1/sagas/{sagaId}/retry
+POST   /internal/v1/sagas/{sagaId}/compensate
+POST   /internal/v1/sagas/{sagaId}/abort
+86. Idempotency
+GET    /internal/v1/idempotency/{idempotencyKey}
+POST   /internal/v1/idempotency/{idempotencyKey}
+DELETE /internal/v1/idempotency/{idempotencyKey}
+
+POST   /internal/v1/idempotency/cleanup
+87. Distributed Locks
+POST   /internal/v1/locks/acquire
+POST   /internal/v1/locks/release
+POST   /internal/v1/locks/extend
+GET    /internal/v1/locks/{lockKey}
+88. Order Orchestration
+POST   /internal/v1/order-orchestrator/orders
+POST   /internal/v1/order-orchestrator/{orderId}/validate
+POST   /internal/v1/order-orchestrator/{orderId}/reserve-inventory
+POST   /internal/v1/order-orchestrator/{orderId}/authorize-payment
+POST   /internal/v1/order-orchestrator/{orderId}/create-order
+POST   /internal/v1/order-orchestrator/{orderId}/confirm-order
+
+POST   /internal/v1/order-orchestrator/{orderId}/rollback
+POST   /internal/v1/order-orchestrator/{orderId}/retry
+
+GET    /internal/v1/order-orchestrator/{orderId}/state
+89. Fulfillment Orchestration
+POST   /internal/v1/fulfillment/orders/{orderId}/plan
+GET    /internal/v1/fulfillment/orders/{orderId}/plan
+
+POST   /internal/v1/fulfillment/orders/{orderId}/allocate
+POST   /internal/v1/fulfillment/orders/{orderId}/split
+POST   /internal/v1/fulfillment/orders/{orderId}/merge
+
+GET    /internal/v1/fulfillment/orders/{orderId}/shipments
+90. Order Splitting
+POST   /internal/v1/orders/{orderId}/split
+GET    /internal/v1/orders/{orderId}/splits
+
+POST   /internal/v1/orders/{orderId}/split-by-seller
+POST   /internal/v1/orders/{orderId}/split-by-warehouse
+POST   /internal/v1/orders/{orderId}/split-by-availability
+91. Seller Routing
+POST   /internal/v1/seller-routing/select
+POST   /internal/v1/seller-routing/rank
+POST   /internal/v1/seller-routing/reallocate
+
+GET    /internal/v1/seller-routing/products/{productId}/candidates
+92. Warehouse Routing
+POST   /internal/v1/warehouse-routing/select
+POST   /internal/v1/warehouse-routing/rank
+POST   /internal/v1/warehouse-routing/reallocate
+
+GET    /internal/v1/warehouse-routing/skus/{skuId}/candidates
+93. Delivery ETA Engine
+POST   /internal/v1/eta/calculate
+POST   /internal/v1/eta/cart
+POST   /internal/v1/eta/order
+POST   /internal/v1/eta/shipment
+
+GET    /internal/v1/eta/shipments/{shipmentId}
+POST   /internal/v1/eta/shipments/{shipmentId}/recalculate
+94. Product Ranking
+POST   /internal/v1/ranking/search
+POST   /internal/v1/ranking/category
+POST   /internal/v1/ranking/home
+POST   /internal/v1/ranking/recommendations
+
+GET    /internal/v1/ranking/models
+GET    /internal/v1/ranking/models/{modelId}
+95. Personalization
+GET    /api/v1/personalization/profile
+POST   /api/v1/personalization/events
+
+GET    /internal/v1/personalization/customers/{customerId}
+POST   /internal/v1/personalization/customers/{customerId}/refresh
+
+POST   /internal/v1/personalization/rank
+POST   /internal/v1/personalization/recommend
+96. Experiment / A-B Testing
+GET    /internal/v1/experiments
+POST   /internal/v1/experiments
+GET    /internal/v1/experiments/{experimentId}
+PATCH  /internal/v1/experiments/{experimentId}
+
+POST   /internal/v1/experiments/{experimentId}/start
+POST   /internal/v1/experiments/{experimentId}/pause
+POST   /internal/v1/experiments/{experimentId}/stop
+
+GET    /internal/v1/experiments/{experimentId}/variants
+POST   /internal/v1/experiments/{experimentId}/variants
+
+POST   /internal/v1/experiments/assignment
+POST   /internal/v1/experiments/events
+97. Returns Quality Check
+GET    /internal/v1/return-qc/tasks
+GET    /internal/v1/return-qc/tasks/{taskId}
+
+POST   /internal/v1/return-qc/tasks/{taskId}/start
+POST   /internal/v1/return-qc/tasks/{taskId}/pass
+POST   /internal/v1/return-qc/tasks/{taskId}/fail
+
+POST   /internal/v1/return-qc/tasks/{taskId}/images
+POST   /internal/v1/return-qc/tasks/{taskId}/complete
+98. Settlements
+POST   /internal/v1/settlements/calculate
+POST   /internal/v1/settlements/generate
+
+GET    /internal/v1/settlements
+GET    /internal/v1/settlements/{settlementId}
+
+POST   /internal/v1/settlements/{settlementId}/approve
+POST   /internal/v1/settlements/{settlementId}/process
+POST   /internal/v1/settlements/{settlementId}/retry
+
+GET    /internal/v1/settlements/{settlementId}/ledger
+99. Ledger / Accounting
+GET    /internal/v1/ledger/accounts
+GET    /internal/v1/ledger/accounts/{accountId}
+
+GET    /internal/v1/ledger/entries
+POST   /internal/v1/ledger/entries
+
+GET    /internal/v1/ledger/entries/{entryId}
+
+POST   /internal/v1/ledger/debit
+POST   /internal/v1/ledger/credit
+POST   /internal/v1/ledger/transfer
+POST   /internal/v1/ledger/reverse
+
+GET    /internal/v1/ledger/reconciliation
+POST   /internal/v1/ledger/reconciliation/run
+100. Reconciliation
+POST   /internal/v1/reconciliation/payments/run
+POST   /internal/v1/reconciliation/refunds/run
+POST   /internal/v1/reconciliation/orders/run
+POST   /internal/v1/reconciliation/settlements/run
+
+GET    /internal/v1/reconciliation/jobs
+GET    /internal/v1/reconciliation/jobs/{jobId}
+GET    /internal/v1/reconciliation/jobs/{jobId}/mismatches
+
+POST   /internal/v1/reconciliation/mismatches/{mismatchId}/resolve
+101. Scheduled Jobs
+GET    /internal/v1/jobs
+POST   /internal/v1/jobs
+
+GET    /internal/v1/jobs/{jobId}
+POST   /internal/v1/jobs/{jobId}/run
+POST   /internal/v1/jobs/{jobId}/pause
+POST   /internal/v1/jobs/{jobId}/resume
+POST   /internal/v1/jobs/{jobId}/cancel
+
+GET    /internal/v1/jobs/{jobId}/executions
+GET    /internal/v1/jobs/{jobId}/executions/{executionId}
+102. Dead Letter Queue
+GET    /internal/v1/dlq
+GET    /internal/v1/dlq/{messageId}
+
+POST   /internal/v1/dlq/{messageId}/retry
+POST   /internal/v1/dlq/{messageId}/replay
+DELETE /internal/v1/dlq/{messageId}
+
+POST   /internal/v1/dlq/retry-all
+103. Notification Templates
+GET    /internal/v1/notification-templates
+POST   /internal/v1/notification-templates
+
+GET    /internal/v1/notification-templates/{templateId}
+PATCH  /internal/v1/notification-templates/{templateId}
+DELETE /internal/v1/notification-templates/{templateId}
+
+POST   /internal/v1/notification-templates/{templateId}/preview
+POST   /internal/v1/notification-templates/{templateId}/test
+104. Email / SMS / WhatsApp Providers
+POST   /internal/v1/email/send
+POST   /internal/v1/email/send-bulk
+
+POST   /internal/v1/sms/send
+POST   /internal/v1/sms/send-bulk
+
+POST   /internal/v1/whatsapp/send
+POST   /internal/v1/whatsapp/send-template
+
+POST   /webhooks/email/delivery
+POST   /webhooks/email/bounce
+POST   /webhooks/email/complaint
+
+POST   /webhooks/sms/delivery
+POST   /webhooks/whatsapp/status
+105. File Management
+POST   /api/v1/files/upload-url
+POST   /api/v1/files/complete
+
+GET    /api/v1/files/{fileId}
+DELETE /api/v1/files/{fileId}
+
+GET    /api/v1/files/{fileId}/download-url
+
+POST   /internal/v1/files/scan
+POST   /internal/v1/files/process
+POST   /internal/v1/files/resize
+POST   /internal/v1/files/compress
+106. Import / Export
+POST   /api/v1/imports/products
+POST   /api/v1/imports/inventory
+POST   /api/v1/imports/prices
+
+GET    /api/v1/imports/{importId}
+GET    /api/v1/imports/{importId}/errors
+
+POST   /api/v1/exports/products
+POST   /api/v1/exports/orders
+POST   /api/v1/exports/inventory
+POST   /api/v1/exports/customers
+
+GET    /api/v1/exports/{exportId}
+GET    /api/v1/exports/{exportId}/download
+107. GDPR / Privacy
+GET    /api/v1/privacy/consents
+POST   /api/v1/privacy/consents
+PATCH  /api/v1/privacy/consents/{consentId}
+
+POST   /api/v1/privacy/data-export
+GET    /api/v1/privacy/data-export/{requestId}
+
+POST   /api/v1/privacy/delete-account
+GET    /api/v1/privacy/delete-account/{requestId}
+
+POST   /api/v1/privacy/withdraw-consent
+108. System Health
+GET    /health
+GET    /health/live
+GET    /health/ready
+GET    /health/startup
+
+GET    /internal/health
+GET    /internal/health/database
+GET    /internal/health/cache
+GET    /internal/health/kafka
+GET    /internal/health/redis
+GET    /internal/health/search
+GET    /internal/health/payment-gateway
+GET    /internal/health/logistics
+109. Metrics
+GET    /metrics
+
+GET    /internal/v1/metrics/orders
+GET    /internal/v1/metrics/payments
+GET    /internal/v1/metrics/inventory
+GET    /internal/v1/metrics/search
+GET    /internal/v1/metrics/cache
+GET    /internal/v1/metrics/queues
+GET    /internal/v1/metrics/database
+GET    /internal/v1/metrics/http
+110. Operational Diagnostics
+GET    /internal/v1/diagnostics/version
+GET    /internal/v1/diagnostics/build
+GET    /internal/v1/diagnostics/environment
+GET    /internal/v1/diagnostics/dependencies
+
+GET    /internal/v1/diagnostics/thread-pool
+GET    /internal/v1/diagnostics/connections
+GET    /internal/v1/diagnostics/database-pool
+GET    /internal/v1/diagnostics/cache-stats
+GET    /internal/v1/diagnostics/queue-stats
+111. API Gateway / Client Configuration
+GET    /api/v1/config/client
+GET    /api/v1/config/mobile
+GET    /api/v1/config/web
+
+GET    /api/v1/config/minimum-app-version
+GET    /api/v1/config/maintenance
+
+GET    /api/v1/config/features
+GET    /api/v1/config/payment-methods
+GET    /api/v1/config/countries
+GET    /api/v1/config/currencies
+GET    /api/v1/config/languages
+112. Mobile Application
+POST   /api/v1/mobile/devices/register
+DELETE /api/v1/mobile/devices/{deviceId}
+
+POST   /api/v1/mobile/push-token
+DELETE /api/v1/mobile/push-token
+
+GET    /api/v1/mobile/app-version
+GET    /api/v1/mobile/update-status
+GET    /api/v1/mobile/remote-config
+GET    /api/v1/mobile/deep-links
+
+POST   /api/v1/mobile/app-events
+POST   /api/v1/mobile/crash-reports
+113. B2B / Business Accounts
+POST   /api/v1/business/register
+GET    /api/v1/business/profile
+PATCH  /api/v1/business/profile
+
+GET    /api/v1/business/users
+POST   /api/v1/business/users
+PATCH  /api/v1/business/users/{userId}
+DELETE /api/v1/business/users/{userId}
+
+GET    /api/v1/business/roles
+POST   /api/v1/business/roles
+
+GET    /api/v1/business/purchase-orders
+POST   /api/v1/business/purchase-orders
+GET    /api/v1/business/purchase-orders/{purchaseOrderId}
+
+GET    /api/v1/business/credit-limit
+GET    /api/v1/business/invoices
+GET    /api/v1/business/statements
+114. Bulk Orders
+POST   /api/v1/bulk-orders
+GET    /api/v1/bulk-orders/{bulkOrderId}
+
+POST   /api/v1/bulk-orders/{bulkOrderId}/upload
+POST   /api/v1/bulk-orders/{bulkOrderId}/validate
+POST   /api/v1/bulk-orders/{bulkOrderId}/quote
+POST   /api/v1/bulk-orders/{bulkOrderId}/confirm
+
+GET    /api/v1/bulk-orders/{bulkOrderId}/status
+115. API Clients / Partner Integrations
+GET    /api/v1/partners
+POST   /api/v1/partners
+
+GET    /api/v1/partners/{partnerId}
+PATCH  /api/v1/partners/{partnerId}
+
+GET    /api/v1/partners/{partnerId}/credentials
+POST   /api/v1/partners/{partnerId}/credentials
+DELETE /api/v1/partners/{partnerId}/credentials/{credentialId}
+
+GET    /api/v1/partners/{partnerId}/webhooks
+POST   /api/v1/partners/{partnerId}/webhooks
+PATCH  /api/v1/partners/{partnerId}/webhooks/{webhookId}
+DELETE /api/v1/partners/{partnerId}/webhooks/{webhookId}
+116. Webhook Management
+GET    /api/v1/webhooks
+POST   /api/v1/webhooks
+
+GET    /api/v1/webhooks/{webhookId}
+PATCH  /api/v1/webhooks/{webhookId}
+DELETE /api/v1/webhooks/{webhookId}
+
+POST   /api/v1/webhooks/{webhookId}/test
+POST   /api/v1/webhooks/{webhookId}/rotate-secret
+
+GET    /api/v1/webhooks/{webhookId}/deliveries
+GET    /api/v1/webhooks/{webhookId}/deliveries/{deliveryId}
+POST   /api/v1/webhooks/{webhookId}/deliveries/{deliveryId}/retry
+117. Webhook Events
+POST /webhooks/order/created
+POST /webhooks/order/confirmed
+POST /webhooks/order/cancelled
+POST /webhooks/order/shipped
+POST /webhooks/order/delivered
+
+POST /webhooks/payment/authorized
+POST /webhooks/payment/captured
+POST /webhooks/payment/failed
+POST /webhooks/payment/refunded
+
+POST /webhooks/refund/processed
+
+POST /webhooks/return/created
+POST /webhooks/return/completed
+
+POST /webhooks/inventory/updated
+POST /webhooks/inventory/low-stock
+
+POST /webhooks/product/created
+POST /webhooks/product/updated
+
+POST /webhooks/seller/approved
+POST /webhooks/seller/suspended
+118. Kafka/Event Topics Represented as Internal APIs
+POST /internal/v1/events/order-created
+POST /internal/v1/events/order-confirmed
+POST /internal/v1/events/order-cancelled
+POST /internal/v1/events/order-shipped
+POST /internal/v1/events/order-delivered
+
+POST /internal/v1/events/payment-initiated
+POST /internal/v1/events/payment-authorized
+POST /internal/v1/events/payment-captured
+POST /internal/v1/events/payment-failed
+
+POST /internal/v1/events/inventory-reserved
+POST /internal/v1/events/inventory-released
+POST /internal/v1/events/inventory-adjusted
+
+POST /internal/v1/events/shipment-created
+POST /internal/v1/events/shipment-dispatched
+POST /internal/v1/events/shipment-delivered
+
+POST /internal/v1/events/refund-created
+POST /internal/v1/events/refund-completed
+
+POST /internal/v1/events/return-created
+POST /internal/v1/events/return-received
+POST /internal/v1/events/return-completed
+119. API Gateway Authentication / Service-to-Service
+POST   /internal/v1/auth/service-token
+POST   /internal/v1/auth/service-token/validate
+POST   /internal/v1/auth/service-token/refresh
+
+POST   /internal/v1/auth/api-key/validate
+
+GET    /internal/v1/service-accounts
+POST   /internal/v1/service-accounts
+GET    /internal/v1/service-accounts/{serviceAccountId}
+
+POST   /internal/v1/service-accounts/{serviceAccountId}/keys
+DELETE /internal/v1/service-accounts/{serviceAccountId}/keys/{keyId}
+120. Complete Customer Purchase Journey
+POST /api/v1/auth/login
+
+GET  /api/v1/home
+
+GET  /api/v1/search/products
+
+GET  /api/v1/products/{productId}
+
+GET  /api/v1/products/{productId}/availability
+
+POST /api/v1/cart/items
+
+GET  /api/v1/cart
+
+POST /api/v1/serviceability/check
+
+POST /api/v1/checkout
+
+POST /api/v1/checkout/{checkoutId}/address
+
+GET  /api/v1/checkout/{checkoutId}/delivery-options
+
+POST /api/v1/checkout/{checkoutId}/delivery-option
+
+GET  /api/v1/checkout/{checkoutId}/payment-methods
+
+POST /api/v1/checkout/{checkoutId}/payment-method
+
+POST /api/v1/checkout/{checkoutId}/validate
+
+POST /api/v1/checkout/{checkoutId}/place-order
+
+POST /api/v1/payments/intents
+
+POST /api/v1/payments/{paymentId}/authorize
+
+POST /api/v1/payments/{paymentId}/capture
+
+GET  /api/v1/orders/{orderId}
+
+GET  /api/v1/orders/{orderId}/tracking
+
+GET  /api/v1/tracking/{trackingNumber}
+
+POST /api/v1/orders/{orderId}/confirm-delivery
+
+POST /api/v1/orders/{orderId}/items/{itemId}/review
+121. Behind-the-scenes Order Production Flow
+POST /internal/v1/risk/evaluate/order
+
+POST /internal/v1/order-orchestrator/{orderId}/validate
+
+POST /internal/v1/order-orchestrator/{orderId}/reserve-inventory
+
+POST /internal/v1/inventory/reservations
+
+POST /internal/v1/pricing/recalculate-order
+
+POST /internal/v1/tax/calculate/order
+
+POST /internal/v1/order-orchestrator/{orderId}/authorize-payment
+
+POST /internal/v1/order-orchestrator/{orderId}/create-order
+
+POST /internal/v1/events/order-created
+
+POST /internal/v1/fulfillment/orders/{orderId}/plan
+
+POST /internal/v1/warehouse-routing/select
+
+POST /internal/v1/seller-routing/select
+
+POST /internal/v1/inventory/allocate
+
+POST /internal/v1/orders/{orderId}/confirm
+
+POST /internal/v1/events/order-confirmed
+
+POST /internal/v1/notifications/email
+
+POST /internal/v1/notifications/push
+122. Fulfillment Production Flow
+POST /internal/v1/fulfillment/orders/{orderId}/allocate
+
+POST /api/v1/warehouse/picking/tasks/{taskId}/start
+
+POST /api/v1/warehouse/picking/tasks/{taskId}/scan
+
+POST /api/v1/warehouse/picking/tasks/{taskId}/complete
+
+POST /api/v1/warehouse/packing/tasks/{taskId}/start
+
+POST /api/v1/warehouse/packing/tasks/{taskId}/scan
+
+POST /api/v1/warehouse/packing/tasks/{taskId}/complete
+
+POST /api/v1/shipments/{shipmentId}/assign-carrier
+
+POST /api/v1/shipments/{shipmentId}/generate-label
+
+POST /api/v1/shipments/{shipmentId}/dispatch
+
+POST /internal/v1/events/shipment-dispatched
+
+POST /api/v1/shipments/{shipmentId}/mark-in-transit
+
+POST /api/v1/shipments/{shipmentId}/mark-out-for-delivery
+
+POST /api/v1/shipments/{shipmentId}/mark-delivered
+
+POST /internal/v1/events/order-delivered
+123. Production Cancellation Flow
+POST /api/v1/orders/{orderId}/cancel
+
+POST /internal/v1/orders/{orderId}/hold
+
+POST /internal/v1/inventory/deallocate
+
+POST /internal/v1/inventory/reservations/{reservationId}/release
+
+POST /api/v1/payments/{paymentId}/void
+
+POST /api/v1/refunds
+
+POST /internal/v1/orders/{orderId}/cancel
+
+POST /internal/v1/events/order-cancelled
+
+POST /internal/v1/notifications/email
+
+POST /internal/v1/notifications/push
+124. Production Return Flow
+POST /api/v1/returns
+
+POST /api/v1/returns/{returnId}/approve
+
+POST /api/v1/returns/{returnId}/schedule-pickup
+
+POST /internal/v1/events/return-created
+
+POST /api/v1/returns/{returnId}/received
+
+POST /internal/v1/return-qc/tasks/{taskId}/start
+
+POST /internal/v1/return-qc/tasks/{taskId}/pass
+
+POST /internal/v1/return-qc/tasks/{taskId}/complete
+
+POST /api/v1/refunds
+
+POST /api/v1/refunds/{refundId}/process
+
+POST /internal/v1/events/refund-completed
+
+POST /api/v1/returns/{returnId}/complete
